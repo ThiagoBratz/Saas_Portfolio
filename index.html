@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device, initial-scale=1.0">
     <title>Thiago Bratz | Desenvolvedor em formação · Python e Backend</title>
     <meta name="description" content="Portifólio Thiago Bratz, desenvolvedor em formação com foco em Python e Backend. "
-</head>
+     <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  </head>
 <body>
 
     <header>
@@ -99,6 +100,91 @@
         <li>CI/CD</li>
         <li>Cloud Computing</li>
       </ul>
+    </section>
+
+    <section id="projetos" aria-labelledby="titulo-projetos">
+      <h2 id="titulo-projetos">Projetos</h2>
+       <article>
+        <h3>Lotools</h3>
+        <p>Sistema web em Python e FastAPI, usado por colegas na Lotus.</p>
+        <p>Status: concluído</p>
+        <ul aria-label="Tecnologias do Lotools">
+          <li>Python</li>
+          <li>FastAPI</li>
+        </ul>
+        <p>Repositório privado</p>
+      </article>
+
+      <article>
+        <h3>Portfólio</h3>
+        <p>Projeto pessoal, este site que você está vendo.</p>
+        <p>Status: em desenvolvimento</p>
+        <ul aria-label="Tecnologias do Portfólio">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Dashboard de metas comerciais</h3>
+        <p>Dashboard em Power BI para acompanhar metas comerciais.</p>
+        <p>Status: em desenvolvimento</p>
+        <ul aria-label="Tecnologias do Dashboard">
+          <li>Power BI</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="certificados" aria-labelledby="titulo-certificados">
+      <h2 id="titulo-certificados">Certificados</h2>
+
+    <article>
+        <h3>Python: crie a sua primeira aplicação</h3>
+        <p>Alura · 8 horas</p>
+        <p>Data do certificado: <time datetime="2026-09-20">20/09/2026</time></p>
+        <a href="https://cursos.alura.com.br/user/bratzthiagokaleu/course/python-crie-sua-primeira-aplicacao/certificate">Visulizar certificado</a>
+      </article>
+
+      <article>
+        <h3>Pensamento computacional: fundamentos da computação e lógica de programação</h3>
+        <p>Alura · 8 horas</p>
+        <p>Data do certificado: <time datetime="2026-09-26">26/09/2026</time></p>
+        <a href="https://cursos.alura.com.br/user/bratzthiagokaleu/course/computacao-fundamentos-computacao-pensamento-computacional/certificate">Visulizar certificado</a>
+      </article>
+
+      <button type="button">Ver todos os certificados</button>
+    </section>
+
+    <section id="contato" aria-labelledby="titulo-contato">
+      <h2 id="titulo-contato">Contato</h2>
+      <p>Quer conversar sobre estágio, projeto ou oportunidade? Fale comigo.</p>
+
+      <p>E-mail: <a href="mailto:SEU-EMAIL-AQUI">bratzthiagokaleu@gmail.com</a></p>
+      <button type="button">Copiar e-mail</button>
+
+      <a href="https://linkedin.com/in/thiago-bratz-31353a413" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/ThiagoBratz" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="assets/docs/curriculo.pdf" download>Baixar currículo</a>
+
+      <form>
+        <label for="assunto">Assunto</label>
+        <select id="assunto" name="assunto" required>
+          <option value="">Selecione</option>
+          <option value="estagio">Estágio</option>
+          <option value="freelancer">Freelancer</option>
+          <option value="projeto">Projeto</option>
+          <option value="outro">Outro</option>
+        </select>
+
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" autocomplete="name" maxlength="100" required>
+
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="5" maxlength="2000" required></textarea>
+
+        <button type="submit">Enviar mensagem</button>
+      </form>
     </section>
 </main>
 
