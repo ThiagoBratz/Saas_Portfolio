@@ -1,56 +1,62 @@
 <!DOCTYPE html>
-<html lang=""pt-BR">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8"
-    <meta name="viewport" content="width=device, initial-scale=1.0">
-    <title>Thiago Bratz | Desenvolvedor em formação · Python e Backend</title>
-    <meta name="description" content="Portifólio Thiago Bratz, desenvolvedor em formação com foco em Python e Backend. "
-    <meta name="theme-color" content="#12100e">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="pt_BR">
-    <meta property="og:title" content="Thiago Bratz | Desenvolvedor em formação · Python e Backend">
-    <meta property="og:description" content="Portfólio de Thiago Bratz, desenvolvedor em formação com foco em Python e Backend.">
-    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
-  </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thiago Bratz | Desenvolvedor em formação · Python e Backend</title>
+  <meta name="description" content="Portfólio de Thiago Bratz, desenvolvedor em formação com foco em Python e Backend.">
+  <meta name="theme-color" content="#12100e">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Thiago Bratz | Desenvolvedor em formação · Python e Backend">
+  <meta property="og:description" content="Portfólio de Thiago Bratz, desenvolvedor em formação com foco em Python e Backend.">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
 <body>
-  <href="#coteudo">Pular para o conteúdo</href>
-    <header>
-        <a href="#inicio">&gt;_ TKB</a>
+  <a href="#conteudo">Pular para o conteúdo</a>
 
-        <nav aria-label="Menu principal"
-            <ul>
+  <header>
+    <a href="#inicio">&gt;_ TKB</a>
+
+    <nav aria-label="Menu principal">
+      <ul>
         <li><a href="#inicio">Início</a></li>
         <li><a href="#sobre">Sobre mim</a></li>
         <li><a href="#tecnologias">Tecnologias</a></li>
         <li><a href="#projetos">Projetos</a></li>
         <li><a href="#certificados">Certificados</a></li>
         <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+      </ul>
+    </nav>
+  </header>
 
-<main id="conteudo">
-    <selection id="inicio" aria-labelledby="titulo-inicio">
-        <p>Em constante evolução</p>
-        <h1 id="titulo-inicio">Thigo Bratz</h1>
-        <p>Desenvolvedor em formação · Python e Backend</p>
-        <p>Transformo processos bagunçados em sistems que funcionam</p>
-        <p>
+  <main id="conteudo">
+    <section id="inicio" aria-labelledby="titulo-inicio">
+      <p class="etiqueta">Em constante evolução</p>
+      <h1 id="titulo-inicio">Thiago Bratz</h1>
+      <p>Desenvolvedor em formação · Python e Backend</p>
+      <p class="frase">Transformo processos bagunçados em sistemas que funcionam.</p>
+      <p>
         Gosto de resolver problemas e de organizar o que está fora de ordem,
         com planilhas, sites e sistemas. Desenvolvi sozinho o Lotools, um
         sistema web usado por colegas na Lotus, e cada projeto aqui é um
         conhecimento colocado em prática. Meu foco é engenharia de software
         e, mais adiante, DevOps.
-        </p>
+      </p>
 
-        <a href="#projetos">Ver projetos</a>
-        <a href="assets/docs/curriculo.pdf" download>Baixar currículo</a>
+      <div class="acoes">
+        <a class="botao" href="#projetos">Ver projetos</a>
+        <a class="botao botao-secundario" href="assets/docs/curriculo.pdf" download>Baixar currículo</a>
+      </div>
 
+      <div class="links-sociais">
         <a href="https://github.com/ThiagoBratz" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://linkedin.com/in/thiago-bratz-31353a413" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </selection>
-    
-     <section id="sobre" aria-labelledby="titulo-sobre">
+      </div>
+    </section>
+
+    <section id="sobre" aria-labelledby="titulo-sobre">
       <h2 id="titulo-sobre">Sobre mim</h2>
       <p>Sou Thiago Bratz, de Porto Alegre. Sempre gostei de organizar as coisas, de planilhas e de Excel.</p>
       <p>
@@ -80,40 +86,49 @@
     <section id="tecnologias" aria-labelledby="titulo-tecnologias">
       <h2 id="titulo-tecnologias">Tecnologias</h2>
 
-      <h3>Uso</h3>
-      <ul>
-        <li>Python</li>
-        <li>FastAPI</li>
-        <li>HTML</li>
-        <li>Git</li>
-        <li>GitHub</li>
-        <li>Linux</li>
-        <li>VS Code</li>
-      </ul>
+      <div class="grade-tech">
+        <div class="card-tech">
+          <h3>Uso</h3>
+          <ul class="etiquetas">
+            <li>Python</li>
+            <li>FastAPI</li>
+            <li>HTML</li>
+            <li>Git</li>
+            <li>GitHub</li>
+            <li>Linux</li>
+            <li>VS Code</li>
+          </ul>
+        </div>
 
-      <h3>Em estudo</h3>
-      <ul>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>PostgreSQL</li>
-      </ul>
+        <div class="card-tech">
+          <h3>Em estudo</h3>
+          <ul class="etiquetas">
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>PostgreSQL</li>
+          </ul>
+        </div>
 
-      <h3>Próximos passos</h3>
-      <ul>
-        <li>Docker</li>
-        <li>AWS</li>
-        <li>CI/CD</li>
-        <li>Cloud Computing</li>
-      </ul>
+        <div class="card-tech">
+          <h3>Próximos passos</h3>
+          <ul class="etiquetas">
+            <li>Docker</li>
+            <li>AWS</li>
+            <li>CI/CD</li>
+            <li>Cloud Computing</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section id="projetos" aria-labelledby="titulo-projetos">
       <h2 id="titulo-projetos">Projetos</h2>
-       <article>
+
+      <article>
         <h3>Lotools</h3>
         <p>Sistema web em Python e FastAPI, usado por colegas na Lotus.</p>
-        <p>Status: concluído</p>
-        <ul aria-label="Tecnologias do Lotools">
+        <p class="status">Status: concluído</p>
+        <ul class="etiquetas" aria-label="Tecnologias do Lotools">
           <li>Python</li>
           <li>FastAPI</li>
         </ul>
@@ -123,8 +138,8 @@
       <article>
         <h3>Portfólio</h3>
         <p>Projeto pessoal, este site que você está vendo.</p>
-        <p>Status: em desenvolvimento</p>
-        <ul aria-label="Tecnologias do Portfólio">
+        <p class="status">Status: em desenvolvimento</p>
+        <ul class="etiquetas" aria-label="Tecnologias do Portfólio">
           <li>HTML</li>
           <li>CSS</li>
           <li>JavaScript</li>
@@ -134,8 +149,8 @@
       <article>
         <h3>Dashboard de metas comerciais</h3>
         <p>Dashboard em Power BI para acompanhar metas comerciais.</p>
-        <p>Status: em desenvolvimento</p>
-        <ul aria-label="Tecnologias do Dashboard">
+        <p class="status">Status: em desenvolvimento</p>
+        <ul class="etiquetas" aria-label="Tecnologias do Dashboard">
           <li>Power BI</li>
         </ul>
       </article>
@@ -144,33 +159,39 @@
     <section id="certificados" aria-labelledby="titulo-certificados">
       <h2 id="titulo-certificados">Certificados</h2>
 
-    <article>
-        <h3>Python: crie a sua primeira aplicação</h3>
-        <p>Alura · 8 horas</p>
-        <p>Data do certificado: <time datetime="2026-09-20">20/09/2026</time></p>
-        <a href="https://cursos.alura.com.br/user/bratzthiagokaleu/course/python-crie-sua-primeira-aplicacao/certificate">Visulizar certificado</a>
-      </article>
+      <div class="grade-certificados">
+        <article>
+          <h3>Python: crie a sua primeira aplicação</h3>
+          <p>Alura · 8 horas</p>
+          <p>Data do certificado: <time datetime="2026-09-20">20/09/2026</time></p>
+          <a href="https://cursos.alura.com.br/user/bratzthiagokaleu/course/python-crie-sua-primeira-aplicacao/certificate">Visualizar certificado</a>
+        </article>
 
-      <article>
-        <h3>Pensamento computacional: fundamentos da computação e lógica de programação</h3>
-        <p>Alura · 8 horas</p>
-        <p>Data do certificado: <time datetime="2026-09-26">26/09/2026</time></p>
-        <a href="https://cursos.alura.com.br/user/bratzthiagokaleu/course/computacao-fundamentos-computacao-pensamento-computacional/certificate">Visulizar certificado</a>
-      </article>
+        <article>
+          <h3>Pensamento computacional: fundamentos da computação e lógica de programação</h3>
+          <p>Alura · 8 horas</p>
+          <p>Data do certificado: <time datetime="2026-09-26">26/09/2026</time></p>
+          <a href="https://cursos.alura.com.br/user/bratzthiagokaleu/course/computacao-fundamentos-computacao-pensamento-computacional/certificate">Visualizar certificado</a>
+        </article>
+      </div>
 
-      <button type="button">Ver todos os certificados</button>
+      <button class="botao botao-secundario" type="button">Ver todos os certificados</button>
     </section>
 
     <section id="contato" aria-labelledby="titulo-contato">
       <h2 id="titulo-contato">Contato</h2>
       <p>Quer conversar sobre estágio, projeto ou oportunidade? Fale comigo.</p>
 
-      <p>E-mail: <a href="mailto:SEU-EMAIL-AQUI">bratzthiagokaleu@gmail.com</a></p>
-      <button type="button">Copiar e-mail</button>
+      <div class="email-linha">
+        <p>E-mail: <a href="mailto:bratzthiagokaleu@gmail.com">bratzthiagokaleu@gmail.com</a></p>
+        <button class="botao botao-secundario" type="button">Copiar e-mail</button>
+      </div>
 
-      <a href="https://linkedin.com/in/thiago-bratz-31353a413" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="https://github.com/ThiagoBratz" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="assets/docs/curriculo.pdf" download>Baixar currículo</a>
+      <div class="acoes">
+        <a class="botao botao-secundario" href="https://linkedin.com/in/thiago-bratz-31353a413" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="botao botao-secundario" href="https://github.com/ThiagoBratz" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="botao botao-secundario" href="assets/docs/curriculo.pdf" download>Baixar currículo</a>
+      </div>
 
       <form>
         <label for="assunto">Assunto</label>
@@ -188,19 +209,13 @@
         <label for="mensagem">Mensagem</label>
         <textarea id="mensagem" name="mensagem" rows="5" maxlength="2000" required></textarea>
 
-        <button type="submit">Enviar mensagem</button>
+        <button class="botao" type="submit">Enviar mensagem</button>
       </form>
     </section>
-</main>
+  </main>
 
-<footer>
+  <footer>
     <p>Thiago Bratz</p>
-</footer>
-
+  </footer>
 </body>
-
-
-
-
-
 </html>
