@@ -77,7 +77,7 @@ a {
   border: 0;
 }
 
-/* link "Pular para o conteúdo" */
+/* link "Pular para o conteúdo" (precisa ser o primeiro filho do body) */
 body > a:first-child {
   position: absolute;
   left: 1rem;
@@ -835,6 +835,95 @@ footer {
   border-top: 1px solid var(--borda);
 }
 
+/* ========== 13B. INTERAÇÕES E ANIMAÇÕES (ETAPA 5) ========== */
+
+/* aviso do botão copiar */
+.aviso {
+  min-height: 1.3rem;
+  margin: 0.4rem 0 0;
+  font-family: var(--fonte-mono);
+  font-size: 0.85rem;
+  color: var(--laranja-claro);
+}
+
+/* linha de progresso no topo */
+.progresso {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--laranja);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 100;
+}
+
+/* item ativo do menu */
+header nav a.ativo {
+  color: var(--laranja);
+  background: rgba(240, 112, 24, 0.15);
+}
+
+/* flutuação e anéis (ainda não há anéis no HTML) */
+@keyframes flutuar {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.flutuar {
+  animation: flutuar var(--duracao, 6s) ease-in-out infinite;
+  animation-delay: var(--atraso, 0s);
+}
+
+.anel {
+  animation: girar 40s linear infinite;
+}
+
+/* entrada com fade ao rolar (só funciona se o JS estiver ativo) */
+.js .revelar {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.js .revelar.visivel {
+  opacity: 1;
+  transform: none;
+}
+
+/* hover das tecnologias */
+.icones-tech img {
+  transition: transform 0.25s ease;
+}
+
+@media (hover: hover) {
+  .card-tech:hover {
+    border-color: rgba(240, 112, 24, 0.6);
+    border-left-color: var(--laranja);
+    box-shadow: 0 0 24px rgba(240, 112, 24, 0.15);
+  }
+
+  .icones-tech li:hover img {
+    transform: translateY(-4px);
+  }
+}
+
 /* ========== 14. TELAS MÉDIAS (a partir de 768px) ========== */
 @media (min-width: 48rem) {
   /* cabeçalho vira uma única pílula centralizada: logo + menu */
@@ -928,7 +1017,7 @@ footer {
   }
 }
 
-/* ========== 16. ACESSIBILIDADE: MENOS MOVIMENTO ========== */
+/* ========== 16. ACESSIBILIDADE: MENOS MOVIMENTO (sempre por último) ========== */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -942,7 +1031,15 @@ footer {
     animation-iteration-count: 1 !important;
   }
 
-  .etiqueta::before {
+  .etiqueta::before,
+  .flutuar,
+  .anel {
     animation: none;
+  }
+
+  .js .revelar {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

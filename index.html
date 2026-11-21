@@ -12,9 +12,13 @@
   <meta property="og:description" content="Portfólio de Thiago Bratz, desenvolvedor em formação com foco em Python e Backend.">
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/style.css">
+  <!-- marca que o JavaScript está ativo (o CSS do fade depende disso) -->
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body>
   <a href="#conteudo">Pular para o conteúdo</a>
+  <div class="progresso" id="progresso" aria-hidden="true"></div>
 
   <!-- Biblioteca de ícones: definidos uma vez aqui e reutilizados com <use> -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -105,12 +109,12 @@
         </div>
       </div>
 
-      <img class="hero-arte" src="assets/img/hero-notebook.webp" alt="" width="892" height="640">
+      <img class="hero-arte flutuar" src="assets/img/hero-notebook.webp" alt="" width="892" height="640">
     </section>
 
     <!-- ========== SOBRE MIM ========== -->
     <section id="sobre" aria-labelledby="titulo-sobre">
-      <div class="sobre-texto">
+      <div class="sobre-texto revelar">
         <p class="eyebrow">02. Sobre mim</p>
         <h2 id="titulo-sobre">Prazer, eu sou o <span class="destaque">Thiago</span>.</h2>
 
@@ -141,7 +145,7 @@
         <a class="botao botao-secundario" href="#contato">Vamos conversar</a>
       </div>
 
-      <figure class="foto">
+      <figure class="foto revelar">
         <img src="assets/img/foto_thiago.jpg" alt="Foto de Thiago Bratz" width="800" height="1000" loading="lazy" decoding="async">
         <span class="chip chip-terminal" aria-hidden="true">&gt;_</span>
         <span class="chip chip-linux" aria-hidden="true">Linux</span>
@@ -150,7 +154,7 @@
 
     <!-- ========== TECNOLOGIAS ========== -->
     <section id="tecnologias" aria-labelledby="titulo-tecnologias">
-      <div class="secao-topo">
+      <div class="secao-topo revelar">
         <p class="eyebrow">03. Tecnologias</p>
         <h2 id="titulo-tecnologias">Minhas tecnologias</h2>
         <p class="resumo">Ferramentas e tecnologias que eu utilizo, estudo e pretendo aprender em breve.</p>
@@ -159,7 +163,7 @@
       <div class="tech-layout">
         <div class="grade-tech">
 
-          <div class="card-tech">
+          <div class="card-tech revelar">
             <div class="card-tech-info">
               <h3>Uso</h3>
               <p>Tecnologias que eu já utilizo no meu dia a dia.</p>
@@ -175,7 +179,7 @@
             </ul>
           </div>
 
-          <div class="card-tech">
+          <div class="card-tech revelar">
             <div class="card-tech-info">
               <h3>Em estudo</h3>
               <p>Tecnologias que estou aprendendo atualmente.</p>
@@ -187,7 +191,7 @@
             </ul>
           </div>
 
-          <div class="card-tech">
+          <div class="card-tech revelar">
             <div class="card-tech-info">
               <h3>Próximos passos</h3>
               <p>Tecnologias que pretendo explorar em breve.</p>
@@ -202,13 +206,13 @@
 
         </div>
 
-        <img class="tech-arte" src="assets/img/tecnologias-codigo.webp" alt="" width="597" height="490" loading="lazy" decoding="async">
+        <img class="tech-arte flutuar" style="--duracao: 8s" src="assets/img/tecnologias-codigo.webp" alt="" width="597" height="490" loading="lazy" decoding="async">
       </div>
     </section>
 
     <!-- ========== PROJETOS ========== -->
     <section id="projetos" aria-labelledby="titulo-projetos">
-      <div class="secao-topo">
+      <div class="secao-topo revelar">
         <p class="eyebrow">04. Projetos</p>
         <h2 id="titulo-projetos">O que venho construindo</h2>
         <p class="resumo">3 projetos · 2 em desenvolvimento</p>
@@ -216,7 +220,7 @@
 
       <div class="grade-projetos">
 
-        <article class="card-projeto">
+        <article class="card-projeto revelar">
           <img class="projeto-imagem" src="assets/img/projetos/lotools.png" alt="Tela do sistema Lotools" width="1200" height="675" loading="lazy" decoding="async">
           <div class="projeto-corpo">
             <h3>Lotools</h3>
@@ -225,31 +229,30 @@
             <p>Sistema web em Python e FastAPI, usado por colegas na Lotus.</p>
             <ul class="etiquetas" aria-label="Tecnologias do Lotools">
               <li>Python</li>
-              <li>Java Script</li>
+              <li>FastAPI</li>
+              <li>JavaScript</li>
               <li>HTML</li>
               <li>CSS</li>
-              <li>PostgreSql</li>
-              <li>FastAPI</li>
+              <li>PostgreSQL</li>
             </ul>
           </div>
         </article>
 
-        <article class="card-projeto">
+        <article class="card-projeto revelar">
           <img class="projeto-imagem" src="assets/img/projetos/portfolio.png" alt="Imagem do projeto Portfólio" width="1200" height="675" loading="lazy" decoding="async">
           <div class="projeto-corpo">
             <h3>Portfólio</h3>
             <p class="meta">Projeto pessoal · Em desenvolvimento</p>
             <p>Projeto pessoal, este site que você está vendo.</p>
             <ul class="etiquetas" aria-label="Tecnologias do Portfólio">
-               <li>Python</li>
-              <li>Java Script</li>
               <li>HTML</li>
               <li>CSS</li>
+              <li>JavaScript</li>
             </ul>
           </div>
         </article>
 
-        <article class="card-projeto">
+        <article class="card-projeto revelar">
           <img class="projeto-imagem" src="assets/img/projetos/dashboard.png" alt="Imagem do Dashboard de metas comerciais" width="1200" height="675" loading="lazy" decoding="async">
           <div class="projeto-corpo">
             <h3>Dashboard de metas comerciais</h3>
@@ -267,14 +270,14 @@
 
     <!-- ========== CERTIFICADOS ========== -->
     <section id="certificados" aria-labelledby="titulo-certificados">
-      <div class="secao-topo">
+      <div class="secao-topo revelar">
         <p class="eyebrow">05. Certificados</p>
         <h2 id="titulo-certificados">Certificados que organizam cada etapa da minha evolução.</h2>
       </div>
 
       <div class="grade-certificados">
 
-        <article class="card-certificado">
+        <article class="card-certificado revelar">
           <img class="certificado-imagem" src="assets/img/certificados/python-primeira-aplicacao.png" alt="Certificado do curso Python: crie a sua primeira aplicação" width="1200" height="800" loading="lazy" decoding="async">
           <div class="certificado-corpo">
             <h3>Python: crie a sua primeira aplicação</h3>
@@ -284,7 +287,7 @@
           </div>
         </article>
 
-        <article class="card-certificado">
+        <article class="card-certificado revelar">
           <img class="certificado-imagem" src="assets/img/certificados/pensamento-computacional.png" alt="Certificado do curso Pensamento computacional: fundamentos da computação e lógica de programação" width="1200" height="800" loading="lazy" decoding="async">
           <div class="certificado-corpo">
             <h3>Pensamento computacional: fundamentos da computação e lógica de programação</h3>
@@ -306,7 +309,7 @@
 
     <!-- ========== CONTATO ========== -->
     <section id="contato" aria-labelledby="titulo-contato">
-      <div class="contato-texto">
+      <div class="contato-texto revelar">
         <p class="eyebrow">06. Entre em contato</p>
         <h2 id="titulo-contato">Vamos <span class="destaque">conversar?</span></h2>
         <p>Quer conversar sobre estágio, projeto ou oportunidade? Fale comigo.</p>
@@ -330,18 +333,19 @@
         </ul>
       </div>
 
-      <div class="card-contato">
+      <div class="card-contato revelar">
 
         <div class="campo">
           <p class="rotulo">E-mail</p>
           <div class="linha-campo">
             <svg class="icone-linha" aria-hidden="true"><use href="#i-mail"/></svg>
-            <a class="texto" href="mailto:bratzthiagokaleu@gmail.com">bratzthiagokaleu@gmail.com</a>
-            <button class="botao botao-secundario botao-pequeno" type="button">
+            <a class="texto" id="email-texto" href="mailto:bratzthiagokaleu@gmail.com">bratzthiagokaleu@gmail.com</a>
+            <button class="botao botao-secundario botao-pequeno" type="button" id="botao-copiar">
               <svg class="icone-linha" aria-hidden="true"><use href="#i-copiar"/></svg>
               Copiar
             </button>
           </div>
+          <p class="aviso" id="aviso-copiado" role="status" aria-live="polite"></p>
         </div>
 
         <div class="campo">
