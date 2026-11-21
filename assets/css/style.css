@@ -1254,10 +1254,9 @@ header nav a.ativo {
   }
 
   .tech-visual {
-    position: relative;
-    display: block;
-    /* aumenta o conjunto (arte + anéis + ícones) sem mexer no layout dos cards */
-    scale: 1.15;
+  position: relative;
+  display: block;
+  scale: 1.05;
   }
 
   .grade-projetos {
