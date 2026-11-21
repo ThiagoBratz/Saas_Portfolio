@@ -16,6 +16,38 @@
 <body>
   <a href="#conteudo">Pular para o conteúdo</a>
 
+  <!-- Biblioteca de ícones: definidos uma vez aqui e reutilizados com <use> -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-github" viewBox="0 0 16 16">
+      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+    </symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24">
+      <rect width="20" height="16" x="2" y="4" rx="2"/>
+      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </symbol>
+    <symbol id="i-copiar" viewBox="0 0 24 24">
+      <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+      <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+    </symbol>
+    <symbol id="i-baixar" viewBox="0 0 24 24">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <path d="m7 10 5 5 5-5"/>
+      <path d="M12 15V3"/>
+    </symbol>
+    <symbol id="i-externo" viewBox="0 0 24 24">
+      <path d="M15 3h6v6"/>
+      <path d="M10 14 21 3"/>
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+    </symbol>
+    <symbol id="i-enviar" viewBox="0 0 24 24">
+      <path d="m22 2-7 20-4-9-9-4Z"/>
+      <path d="M22 2 11 13"/>
+    </symbol>
+  </svg>
+
   <header>
     <a href="#inicio">&gt;_ TKB</a>
 
@@ -32,186 +64,336 @@
   </header>
 
   <main id="conteudo">
+
+    <!-- ========== INÍCIO ========== -->
     <section id="inicio" aria-labelledby="titulo-inicio">
-      <p class="etiqueta">Em constante evolução</p>
-      <h1 id="titulo-inicio">Thiago Bratz</h1>
-      <p>Desenvolvedor em formação · Python e Backend</p>
-      <p class="frase">Transformo processos bagunçados em sistemas que funcionam.</p>
-      <p>
-        Gosto de resolver problemas e de organizar o que está fora de ordem,
-        com planilhas, sites e sistemas. Desenvolvi sozinho o Lotools, um
-        sistema web usado por colegas na Lotus, e cada projeto aqui é um
-        conhecimento colocado em prática. Meu foco é engenharia de software
-        e, mais adiante, DevOps.
-      </p>
+      <div class="hero-texto">
+        <p class="etiqueta">Em constante evolução</p>
+        <h1 id="titulo-inicio">Thiago Bratz</h1>
+        <p>Desenvolvedor em formação · Python e Backend</p>
+        <p class="frase">Transformo processos bagunçados em sistemas que funcionam.</p>
+        <p>
+          Gosto de resolver problemas e de organizar o que está fora de ordem,
+          com planilhas, sites e sistemas. Desenvolvi sozinho o Lotools, um
+          sistema web usado por colegas na Lotus, e cada projeto aqui é um
+          conhecimento colocado em prática. Meu foco é engenharia de software
+          e, mais adiante, DevOps.
+        </p>
 
-      <div class="acoes">
-        <a class="botao" href="#projetos">Ver projetos</a>
-        <a class="botao botao-secundario" href="assets/docs/curriculo.pdf" download>Baixar currículo</a>
+        <div class="acoes">
+          <a class="botao" href="#projetos">Ver projetos</a>
+          <a class="botao botao-secundario" href="assets/docs/curriculo.pdf" download>Baixar currículo</a>
+        </div>
+
+        <div class="conectar">
+          <ul class="redes">
+            <li>
+              <a class="rede" href="https://github.com/ThiagoBratz" target="_blank" rel="noopener noreferrer" aria-label="GitHub (abre em nova aba)">
+                <svg class="icone" aria-hidden="true"><use href="#i-github"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="rede rede-linkedin" href="https://linkedin.com/in/thiago-bratz-31353a413" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (abre em nova aba)">
+                <svg class="icone" aria-hidden="true"><use href="#i-linkedin"/></svg>
+              </a>
+            </li>
+          </ul>
+          <div class="conectar-texto">
+            <p class="conectar-titulo">Vamos nos conectar</p>
+            <p>Acompanhe meus projetos e minha trajetória.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="links-sociais">
-        <a href="https://github.com/ThiagoBratz" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://linkedin.com/in/thiago-bratz-31353a413" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </div>
+      <img class="hero-arte" src="assets/img/hero-notebook.webp" alt="" width="892" height="640">
     </section>
 
+    <!-- ========== SOBRE MIM ========== -->
     <section id="sobre" aria-labelledby="titulo-sobre">
-      <h2 id="titulo-sobre">Sobre mim</h2>
-      <p>Sou Thiago Bratz, de Porto Alegre. Sempre gostei de organizar as coisas, de planilhas e de Excel.</p>
-      <p>
-        Comecei como Jovem Aprendiz vendedor e hoje sou estagiário de CCA na
-        Lotus Incorporadora, com financiamento e repasse imobiliário. Foi no
-        setor comercial que enxerguei problemas que a programação poderia resolver.
-      </p>
-      <p>
-        Em setembro de 2026 comecei a estudar Python e desenvolvi sozinho o
-        Lotools, concluído em novembro de 2026 e usado por colegas. Combino
-        programação e Excel para organizar processos.
-      </p>
-      <p>
-        Em fevereiro de 2027 começo ADS na FIAP. Estudo pela Alura, resolvo
-        problemas no LeetCode e pratico em projetos.
-      </p>
+      <div class="sobre-texto">
+        <p class="eyebrow">02. Sobre mim</p>
+        <h2 id="titulo-sobre">Prazer, eu sou o <span class="destaque">Thiago</span>.</h2>
 
-      <h3>Onde quero chegar</h3>
-      <p>
-        Quero evoluir como desenvolvedor de software, construir aplicações
-        completas e aprofundar meus conhecimentos em backend. Também pretendo
-        estudar Cloud Computing e DevOps para entender o ciclo completo até a
-        produção, e seguir evoluindo continuamente.
-      </p>
+        <p>Sou Thiago Bratz, de Porto Alegre. Sempre gostei de organizar as coisas, de planilhas e de Excel.</p>
+        <p>
+          Comecei como Jovem Aprendiz vendedor e hoje sou estagiário de CCA na
+          Lotus Incorporadora, com financiamento e repasse imobiliário. Foi no
+          setor comercial que enxerguei problemas que a programação poderia resolver.
+        </p>
+        <p>
+          Em setembro de 2026 comecei a estudar Python e desenvolvi sozinho o
+          Lotools, concluído em novembro de 2026 e usado por colegas. Combino
+          programação e Excel para organizar processos.
+        </p>
+        <p>
+          Em fevereiro de 2027 começo ADS na FIAP. Estudo pela Alura, resolvo
+          problemas no LeetCode e pratico em projetos.
+        </p>
+
+        <h3>Onde quero chegar</h3>
+        <p>
+          Quero evoluir como desenvolvedor de software, construir aplicações
+          completas e aprofundar meus conhecimentos em backend. Também pretendo
+          estudar Cloud Computing e DevOps para entender o ciclo completo até a
+          produção, e seguir evoluindo continuamente.
+        </p>
+
+        <a class="botao botao-secundario" href="#contato">Vamos conversar</a>
+      </div>
+
+      <figure class="foto">
+        <img src="assets/img/foto.jpg" alt="Foto de Thiago Bratz" width="800" height="1000" loading="lazy" decoding="async">
+        <span class="chip chip-terminal" aria-hidden="true">&gt;_</span>
+        <span class="chip chip-linux" aria-hidden="true">Linux</span>
+      </figure>
     </section>
 
+    <!-- ========== TECNOLOGIAS ========== -->
     <section id="tecnologias" aria-labelledby="titulo-tecnologias">
-      <h2 id="titulo-tecnologias">Tecnologias</h2>
+      <div class="secao-topo">
+        <p class="eyebrow">03. Tecnologias</p>
+        <h2 id="titulo-tecnologias">Minhas tecnologias</h2>
+        <p class="resumo">Ferramentas e tecnologias que eu utilizo, estudo e pretendo aprender em breve.</p>
+      </div>
 
-      <div class="grade-tech">
-        <div class="card-tech">
-          <h3>Uso</h3>
-          <ul class="etiquetas">
-            <li>Python</li>
-            <li>FastAPI</li>
-            <li>HTML</li>
-            <li>Git</li>
-            <li>GitHub</li>
-            <li>Linux</li>
-            <li>VS Code</li>
-          </ul>
+      <div class="tech-layout">
+        <div class="grade-tech">
+
+          <div class="card-tech">
+            <div class="card-tech-info">
+              <h3>Uso</h3>
+              <p>Tecnologias que eu já utilizo no meu dia a dia.</p>
+            </div>
+            <ul class="icones-tech">
+              <li><img src="assets/icons/tech/python.svg" alt="" width="48" height="48"><span>Python</span></li>
+              <li><img src="assets/icons/tech/fastapi.svg" alt="" width="48" height="48"><span>FastAPI</span></li>
+              <li><img src="assets/icons/tech/html5.svg" alt="" width="48" height="48"><span>HTML</span></li>
+              <li><img src="assets/icons/tech/git.svg" alt="" width="48" height="48"><span>Git</span></li>
+              <li><img src="assets/icons/tech/github.svg" alt="" width="48" height="48"><span>GitHub</span></li>
+              <li><img src="assets/icons/tech/linux.svg" alt="" width="48" height="48"><span>Linux</span></li>
+              <li><img src="assets/icons/tech/vscode.svg" alt="" width="48" height="48"><span>VS Code</span></li>
+            </ul>
+          </div>
+
+          <div class="card-tech">
+            <div class="card-tech-info">
+              <h3>Em estudo</h3>
+              <p>Tecnologias que estou aprendendo atualmente.</p>
+            </div>
+            <ul class="icones-tech">
+              <li><img src="assets/icons/tech/css3.svg" alt="" width="48" height="48"><span>CSS</span></li>
+              <li><img src="assets/icons/tech/javascript.svg" alt="" width="48" height="48"><span>JavaScript</span></li>
+              <li><img src="assets/icons/tech/postgresql.svg" alt="" width="48" height="48"><span>PostgreSQL</span></li>
+            </ul>
+          </div>
+
+          <div class="card-tech">
+            <div class="card-tech-info">
+              <h3>Próximos passos</h3>
+              <p>Tecnologias que pretendo explorar em breve.</p>
+            </div>
+            <ul class="icones-tech">
+              <li><img src="assets/icons/tech/docker.svg" alt="" width="48" height="48"><span>Docker</span></li>
+              <li><img src="assets/icons/tech/aws.svg" alt="" width="48" height="48"><span>AWS</span></li>
+              <li><img src="assets/icons/tech/cicd.svg" alt="" width="48" height="48"><span>CI/CD</span></li>
+              <li><img src="assets/icons/tech/cloud.svg" alt="" width="48" height="48"><span>Cloud Computing</span></li>
+            </ul>
+          </div>
+
         </div>
 
-        <div class="card-tech">
-          <h3>Em estudo</h3>
-          <ul class="etiquetas">
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>PostgreSQL</li>
-          </ul>
-        </div>
-
-        <div class="card-tech">
-          <h3>Próximos passos</h3>
-          <ul class="etiquetas">
-            <li>Docker</li>
-            <li>AWS</li>
-            <li>CI/CD</li>
-            <li>Cloud Computing</li>
-          </ul>
-        </div>
+        <img class="tech-arte" src="assets/img/tecnologias-codigo.webp" alt="" width="597" height="490" loading="lazy" decoding="async">
       </div>
     </section>
 
+    <!-- ========== PROJETOS ========== -->
     <section id="projetos" aria-labelledby="titulo-projetos">
-      <h2 id="titulo-projetos">Projetos</h2>
+      <div class="secao-topo">
+        <p class="eyebrow">04. Projetos</p>
+        <h2 id="titulo-projetos">O que venho construindo</h2>
+        <p class="resumo">3 projetos · 2 em desenvolvimento</p>
+      </div>
 
-      <article>
-        <h3>Lotools</h3>
-        <p>Sistema web em Python e FastAPI, usado por colegas na Lotus.</p>
-        <p class="status">Status: concluído</p>
-        <ul class="etiquetas" aria-label="Tecnologias do Lotools">
-          <li>Python</li>
-          <li>FastAPI</li>
-        </ul>
-        <p>Repositório privado</p>
-      </article>
+      <div class="grade-projetos">
 
-      <article>
-        <h3>Portfólio</h3>
-        <p>Projeto pessoal, este site que você está vendo.</p>
-        <p class="status">Status: em desenvolvimento</p>
-        <ul class="etiquetas" aria-label="Tecnologias do Portfólio">
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-        </ul>
-      </article>
+        <article class="card-projeto">
+          <img class="projeto-imagem" src="assets/img/projetos/lotools.png" alt="Tela do sistema Lotools" width="1200" height="675" loading="lazy" decoding="async">
+          <div class="projeto-corpo">
+            <h3>Lotools</h3>
+            <p class="meta">Sistema web · Concluído</p>
+            <p class="selo">Repositório privado</p>
+            <p>Sistema web em Python e FastAPI, usado por colegas na Lotus.</p>
+            <ul class="etiquetas" aria-label="Tecnologias do Lotools">
+              <li>Python</li>
+              <li>FastAPI</li>
+            </ul>
+          </div>
+        </article>
 
-      <article>
-        <h3>Dashboard de metas comerciais</h3>
-        <p>Dashboard em Power BI para acompanhar metas comerciais.</p>
-        <p class="status">Status: em desenvolvimento</p>
-        <ul class="etiquetas" aria-label="Tecnologias do Dashboard">
-          <li>Power BI</li>
-        </ul>
-      </article>
+        <article class="card-projeto">
+          <img class="projeto-imagem" src="assets/img/projetos/portfolio.png" alt="Imagem do projeto Portfólio" width="1200" height="675" loading="lazy" decoding="async">
+          <div class="projeto-corpo">
+            <h3>Portfólio</h3>
+            <p class="meta">Projeto pessoal · Em desenvolvimento</p>
+            <p>Projeto pessoal, este site que você está vendo.</p>
+            <ul class="etiquetas" aria-label="Tecnologias do Portfólio">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card-projeto">
+          <img class="projeto-imagem" src="assets/img/projetos/dashboard.png" alt="Imagem do Dashboard de metas comerciais" width="1200" height="675" loading="lazy" decoding="async">
+          <div class="projeto-corpo">
+            <h3>Dashboard de metas comerciais</h3>
+            <p class="meta">Dashboard Power BI · Em desenvolvimento</p>
+            <p>Dashboard em Power BI para acompanhar metas comerciais.</p>
+            <ul class="etiquetas" aria-label="Tecnologias do Dashboard">
+              <li>Power BI</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
     </section>
 
+    <!-- ========== CERTIFICADOS ========== -->
     <section id="certificados" aria-labelledby="titulo-certificados">
-      <h2 id="titulo-certificados">Certificados</h2>
+      <div class="secao-topo">
+        <p class="eyebrow">05. Certificados</p>
+        <h2 id="titulo-certificados">Certificados que organizam cada etapa da minha evolução.</h2>
+      </div>
 
       <div class="grade-certificados">
-        <article>
-          <h3>Python: crie a sua primeira aplicação</h3>
-          <p>Alura · 8 horas</p>
-          <p>Data do certificado: <time datetime="2026-09-20">20/09/2026</time></p>
-          <a href="https://cursos.alura.com.br/user/bratzthiagokaleu/course/python-crie-sua-primeira-aplicacao/certificate">Visualizar certificado</a>
+
+        <article class="card-certificado">
+          <img class="certificado-imagem" src="assets/img/certificados/python-primeira-aplicacao.png" alt="Certificado do curso Python: crie a sua primeira aplicação" width="1200" height="800" loading="lazy" decoding="async">
+          <div class="certificado-corpo">
+            <h3>Python: crie a sua primeira aplicação</h3>
+            <p>Alura · 8 horas</p>
+            <p>Data do certificado: <time datetime="2026-09-20">20/09/2026</time></p>
+            <a href="https://cursos.alura.com.br/user/bratzthiagokaleu/course/python-crie-sua-primeira-aplicacao/certificate">Visualizar certificado</a>
+          </div>
         </article>
 
-        <article>
-          <h3>Pensamento computacional: fundamentos da computação e lógica de programação</h3>
-          <p>Alura · 8 horas</p>
-          <p>Data do certificado: <time datetime="2026-09-26">26/09/2026</time></p>
-          <a href="https://cursos.alura.com.br/user/bratzthiagokaleu/course/computacao-fundamentos-computacao-pensamento-computacional/certificate">Visualizar certificado</a>
+        <article class="card-certificado">
+          <img class="certificado-imagem" src="assets/img/certificados/pensamento-computacional.png" alt="Certificado do curso Pensamento computacional: fundamentos da computação e lógica de programação" width="1200" height="800" loading="lazy" decoding="async">
+          <div class="certificado-corpo">
+            <h3>Pensamento computacional: fundamentos da computação e lógica de programação</h3>
+            <p>Alura · 8 horas</p>
+            <p>Data do certificado: <time datetime="2026-09-26">26/09/2026</time></p>
+            <a href="https://cursos.alura.com.br/user/bratzthiagokaleu/course/computacao-fundamentos-computacao-pensamento-computacional/certificate">Visualizar certificado</a>
+          </div>
         </article>
+
       </div>
 
-      <button class="botao botao-secundario" type="button">Ver todos os certificados</button>
+      <div class="acao-centro">
+        <button class="botao botao-secundario" type="button">
+          <svg class="icone-linha" aria-hidden="true"><use href="#i-externo"/></svg>
+          Ver todos os certificados
+        </button>
+      </div>
     </section>
 
+    <!-- ========== CONTATO ========== -->
     <section id="contato" aria-labelledby="titulo-contato">
-      <h2 id="titulo-contato">Contato</h2>
-      <p>Quer conversar sobre estágio, projeto ou oportunidade? Fale comigo.</p>
+      <div class="contato-texto">
+        <p class="eyebrow">06. Entre em contato</p>
+        <h2 id="titulo-contato">Vamos <span class="destaque">conversar?</span></h2>
+        <p>Quer conversar sobre estágio, projeto ou oportunidade? Fale comigo.</p>
 
-      <div class="email-linha">
-        <p>E-mail: <a href="mailto:bratzthiagokaleu@gmail.com">bratzthiagokaleu@gmail.com</a></p>
-        <button class="botao botao-secundario" type="button">Copiar e-mail</button>
+        <ul class="redes">
+          <li>
+            <a class="rede rede-quadrada" href="https://github.com/ThiagoBratz" target="_blank" rel="noopener noreferrer" aria-label="GitHub (abre em nova aba)">
+              <svg class="icone" aria-hidden="true"><use href="#i-github"/></svg>
+            </a>
+          </li>
+          <li>
+            <a class="rede rede-quadrada rede-linkedin" href="https://linkedin.com/in/thiago-bratz-31353a413" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (abre em nova aba)">
+              <svg class="icone" aria-hidden="true"><use href="#i-linkedin"/></svg>
+            </a>
+          </li>
+          <li>
+            <a class="rede rede-quadrada" href="mailto:bratzthiagokaleu@gmail.com" aria-label="Enviar e-mail">
+              <svg class="icone-linha" aria-hidden="true"><use href="#i-mail"/></svg>
+            </a>
+          </li>
+        </ul>
       </div>
 
-      <div class="acoes">
-        <a class="botao botao-secundario" href="https://linkedin.com/in/thiago-bratz-31353a413" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a class="botao botao-secundario" href="https://github.com/ThiagoBratz" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a class="botao botao-secundario" href="assets/docs/curriculo.pdf" download>Baixar currículo</a>
+      <div class="card-contato">
+
+        <div class="campo">
+          <p class="rotulo">E-mail</p>
+          <div class="linha-campo">
+            <svg class="icone-linha" aria-hidden="true"><use href="#i-mail"/></svg>
+            <a class="texto" href="mailto:bratzthiagokaleu@gmail.com">bratzthiagokaleu@gmail.com</a>
+            <button class="botao botao-secundario botao-pequeno" type="button">
+              <svg class="icone-linha" aria-hidden="true"><use href="#i-copiar"/></svg>
+              Copiar
+            </button>
+          </div>
+        </div>
+
+        <div class="campo">
+          <p class="rotulo">LinkedIn</p>
+          <a class="linha-campo" href="https://linkedin.com/in/thiago-bratz-31353a413" target="_blank" rel="noopener noreferrer">
+            <svg class="icone" aria-hidden="true"><use href="#i-linkedin"/></svg>
+            <span class="texto">linkedin.com/in/thiago-bratz-31353a413</span>
+            <svg class="icone-linha" aria-hidden="true"><use href="#i-externo"/></svg>
+            <span class="sr-only">(abre em nova aba)</span>
+          </a>
+        </div>
+
+        <div class="campo">
+          <p class="rotulo">Currículo</p>
+          <a class="linha-campo" href="assets/docs/curriculo.pdf" download>
+            <svg class="icone-linha" aria-hidden="true"><use href="#i-baixar"/></svg>
+            <span class="texto">Baixar currículo (PDF)</span>
+          </a>
+        </div>
+
+        <form>
+          <fieldset class="assuntos">
+            <legend class="rotulo">Mensagem rápida</legend>
+            <div class="assuntos-opcoes">
+              <div class="assunto">
+                <input type="radio" id="assunto-estagio" name="assunto" value="estagio" checked>
+                <label for="assunto-estagio">Estágio</label>
+              </div>
+              <div class="assunto">
+                <input type="radio" id="assunto-freelancer" name="assunto" value="freelancer">
+                <label for="assunto-freelancer">Freelancer</label>
+              </div>
+              <div class="assunto">
+                <input type="radio" id="assunto-projeto" name="assunto" value="projeto">
+                <label for="assunto-projeto">Projeto</label>
+              </div>
+              <div class="assunto">
+                <input type="radio" id="assunto-outro" name="assunto" value="outro">
+                <label for="assunto-outro">Outro</label>
+              </div>
+            </div>
+          </fieldset>
+
+          <label class="sr-only" for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome" autocomplete="name" maxlength="100" required>
+
+          <label class="sr-only" for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" rows="4" placeholder="Escreva sua mensagem..." maxlength="2000" required></textarea>
+
+          <button class="botao botao-largo" type="submit">
+            Enviar mensagem
+            <svg class="icone-linha" aria-hidden="true"><use href="#i-enviar"/></svg>
+          </button>
+        </form>
+
       </div>
-
-      <form>
-        <label for="assunto">Assunto</label>
-        <select id="assunto" name="assunto" required>
-          <option value="">Selecione</option>
-          <option value="estagio">Estágio</option>
-          <option value="freelancer">Freelancer</option>
-          <option value="projeto">Projeto</option>
-          <option value="outro">Outro</option>
-        </select>
-
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" autocomplete="name" maxlength="100" required>
-
-        <label for="mensagem">Mensagem</label>
-        <textarea id="mensagem" name="mensagem" rows="5" maxlength="2000" required></textarea>
-
-        <button class="botao" type="submit">Enviar mensagem</button>
-      </form>
     </section>
+
   </main>
 
   <footer>

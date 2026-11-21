@@ -9,6 +9,7 @@
   --cinza: #a2a29c;
   --borda: rgba(244, 236, 228, 0.1);
   --raio: 16px;
+  --largura: 78rem;
 
   --fonte-texto: "Inter", system-ui, sans-serif;
   --fonte-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -63,6 +64,19 @@ a {
   outline-offset: 3px;
 }
 
+/* texto só para leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* link "Pular para o conteúdo" */
 body > a:first-child {
   position: absolute;
@@ -77,6 +91,25 @@ body > a:first-child {
 
 body > a:first-child:focus {
   top: 1rem;
+}
+
+/* ícones (vindos do sprite no HTML) */
+.icone {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: none;
+  fill: currentColor;
+}
+
+.icone-linha {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 /* ========== 4. CABEÇALHO E MENU ========== */
@@ -115,7 +148,7 @@ nav ul {
   border-radius: 999px;
   overflow-x: auto;
   white-space: nowrap;
-  scrollbar-width: none; /* esconde a barra de rolagem do menu no celular */
+  scrollbar-width: none;
 }
 
 nav ul::-webkit-scrollbar {
@@ -137,12 +170,13 @@ nav a:focus-visible {
   background: rgba(240, 112, 24, 0.15);
 }
 
-/* ========== 5. SEÇÕES E HERO ========== */
+/* ========== 5. SEÇÕES E TÍTULOS ========== */
 section {
   min-height: 100svh;
-  max-width: 72rem;
+  max-width: var(--largura);
   margin-inline: auto;
   padding: 4rem 1.25rem;
+  overflow-x: clip;
 }
 
 h1 {
@@ -154,6 +188,7 @@ h1 {
 h2 {
   margin: 0 0 1.5rem;
   font-size: clamp(1.75rem, 6vw, 2.75rem);
+  line-height: 1.15;
 }
 
 h3 {
@@ -170,10 +205,55 @@ section p {
   max-width: 65ch;
 }
 
+/* rótulo pequeno acima dos títulos: "02. SOBRE MIM" */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 0.75rem;
+  font-family: var(--fonte-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--laranja);
+}
+
+.eyebrow::after {
+  content: "";
+  flex: 1;
+  max-width: 10rem;
+  height: 1px;
+  background: var(--borda);
+}
+
+/* palavra em laranja dentro de um título */
+.destaque {
+  color: var(--laranja);
+}
+
+.resumo {
+  margin: 0 0 2rem;
+  font-size: 1.1rem;
+}
+
+.secao-topo {
+  margin-bottom: 1rem;
+}
+
+/* ========== 6. HERO ========== */
 #inicio {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 2rem;
+}
+
+.hero-arte {
+  width: 100%;
+  max-width: 34rem;
+  height: auto;
+  margin-inline: auto;
 }
 
 /* etiqueta "Em constante evolução" */
@@ -188,6 +268,7 @@ section p {
   border-radius: 999px;
 }
 
+/* bolinha que pulsa */
 .etiqueta::before {
   content: "";
   display: inline-block;
@@ -196,6 +277,19 @@ section p {
   margin-right: 0.5rem;
   background: var(--laranja);
   border-radius: 50%;
+  animation: pulsar 1.8s ease-in-out infinite;
+}
+
+@keyframes pulsar {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(240, 112, 24, 0.6);
+  }
+  50% {
+    opacity: 0.45;
+    box-shadow: 0 0 0 6px rgba(240, 112, 24, 0);
+  }
 }
 
 /* frase de destaque do hero */
@@ -206,13 +300,91 @@ section p {
   color: var(--texto);
 }
 
-/* ========== 6. BOTÕES E LINKS DE AÇÃO ========== */
+/* GitHub e LinkedIn do hero */
+.conectar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.redes {
+  display: flex;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rede {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  color: var(--texto);
+  background: #0c0b09;
+  border: 1px solid var(--borda);
+  border-radius: 50%;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.rede:hover {
+  transform: translateY(-2px);
+  border-color: var(--laranja);
+  box-shadow: 0 0 18px rgba(240, 112, 24, 0.35);
+}
+
+.rede-linkedin {
+  background: #0a66c2;
+  border-color: transparent;
+}
+
+/* versão quadrada, usada na seção de contato */
+.rede-quadrada {
+  width: 3.75rem;
+  height: 3.75rem;
+  background: var(--card);
+  border-radius: 16px;
+}
+
+.rede-quadrada.rede-linkedin {
+  background: var(--card);
+  border-color: var(--borda);
+}
+
+.rede-quadrada.rede-linkedin .icone {
+  color: #3b9cff;
+}
+
+.conectar-texto {
+  padding-left: 1rem;
+  border-left: 2px solid var(--laranja);
+}
+
+.conectar-texto p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.conectar-texto .conectar-titulo {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--texto);
+}
+
+/* ========== 7. BOTÕES ========== */
 /* grupo de botões lado a lado */
 .acoes {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin: 1.5rem 0 1rem;
+  margin: 1.5rem 0 0;
+}
+
+.acao-centro {
+  display: flex;
+  justify-content: center;
 }
 
 /* botão base: vale para <a> e <button> com class="botao" */
@@ -220,6 +392,7 @@ section p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
   padding: 0.7rem 1.25rem;
   font: inherit;
   font-weight: 600;
@@ -254,73 +427,224 @@ section p {
   border-color: var(--laranja);
 }
 
-/* GitHub e LinkedIn no hero: links discretos */
-.links-sociais {
+.botao-pequeno {
+  padding: 0.35rem 0.85rem;
+  font-size: 0.85rem;
+}
+
+.botao-largo {
+  width: 100%;
+}
+
+/* ========== 8. SOBRE MIM ========== */
+#sobre {
   display: flex;
-  gap: 1.25rem;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3rem;
 }
 
-.links-sociais a {
-  color: var(--cinza);
+.sobre-texto .botao {
+  margin-top: 1.5rem;
 }
 
-.links-sociais a:hover {
+/* moldura da foto */
+.foto {
+  position: relative;
+  width: 100%;
+  max-width: 22rem;
+  margin: 0 auto;
+}
+
+.foto img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: #0c0b09;
+  border: 2px solid var(--laranja);
+  border-radius: 28px;
+  box-shadow: 0 0 40px rgba(240, 112, 24, 0.35);
+  transform: perspective(1000px) rotateY(-6deg) rotate(2deg);
+}
+
+/* anel laranja atrás da foto */
+.foto::before {
+  content: "";
+  position: absolute;
+  inset: 18% -14%;
+  border: 2px solid rgba(240, 112, 24, 0.45);
+  border-radius: 50%;
+  transform: rotate(-18deg);
+}
+
+.chip {
+  position: absolute;
+  z-index: 2;
+  padding: 0.5rem 0.9rem;
+  font-family: var(--fonte-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
   color: var(--texto);
+  background: rgba(24, 21, 15, 0.95);
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-/* ========== 7. CARDS ========== */
-#projetos article,
-#certificados article,
-.card-tech {
-  padding: 1.25rem;
+.chip-terminal {
+  top: 8%;
+  left: -0.5rem;
+  transform: rotate(-8deg);
+}
+
+.chip-linux {
+  right: -0.5rem;
+  bottom: 18%;
+  transform: rotate(-6deg);
+}
+
+.chip-linux::before {
+  content: "";
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.5rem;
+  background: var(--laranja);
+  border-radius: 50%;
+}
+
+/* ========== 9. CARDS (base compartilhada) ========== */
+.card-tech,
+.card-projeto,
+.card-certificado {
   background: var(--card);
   border: 1px solid var(--borda);
   border-radius: var(--raio);
 }
 
-/* projetos ficam empilhados, com espaço entre eles */
-#projetos article + article {
-  margin-top: 1rem;
+/* ========== 10. TECNOLOGIAS ========== */
+.tech-layout {
+  display: grid;
+  gap: 2rem;
 }
 
-/* projetos e tecnologias: barra laranja à esquerda */
-#projetos article,
-.card-tech {
-  border-left: 4px solid var(--laranja);
-}
-
-/* certificados: linha laranja fina com brilho suave */
-#certificados article {
-  border-color: rgba(240, 112, 24, 0.4);
-  box-shadow: 0 0 24px rgba(240, 112, 24, 0.12);
-}
-
-/* tecnologias: três cards em grade (1 coluna no celular) */
 .grade-tech {
   display: grid;
   gap: 1rem;
 }
 
-/* certificados: grade com espaço embaixo antes do botão */
-.grade-certificados {
+.card-tech {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border-left: 4px solid var(--laranja);
+}
+
+.card-tech-info p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.icones-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.icones-tech li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 4.5rem;
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--texto);
+}
+
+.icones-tech img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* arte </>: só aparece em telas grandes */
+.tech-arte {
+  display: none;
+}
+
+/* ========== 11. PROJETOS ========== */
+.grade-projetos {
   display: grid;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: 1.25rem;
 }
 
-/* status do projeto */
-.status {
-  font-family: var(--fonte-mono);
+.card-projeto {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.projeto-imagem {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #0c0b09;
+}
+
+.projeto-corpo {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+}
+
+/* barra laranja à esquerda, só na parte do texto */
+.projeto-corpo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background: var(--laranja);
+}
+
+.projeto-corpo p {
+  margin: 0 0 0.75rem;
+}
+
+.meta {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--texto);
+}
+
+.selo {
+  width: fit-content;
+  padding: 0.15rem 0.8rem;
   font-size: 0.85rem;
-  color: var(--laranja);
+  color: var(--laranja-claro);
+  border: 1px solid rgba(240, 112, 24, 0.6);
+  border-radius: 999px;
 }
 
-/* ========== 8. ETIQUETAS (CHIPS) DE TECNOLOGIAS ========== */
+/* etiquetas (chips) de tecnologias */
 .etiquetas {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin: 0 0 1rem;
+  margin: auto 0 0;
   padding: 0;
   list-style: none;
 }
@@ -329,46 +653,169 @@ section p {
   padding: 0.25rem 0.75rem;
   font-family: var(--fonte-mono);
   font-size: 0.8rem;
-  color: var(--texto);
-  background: rgba(244, 236, 228, 0.05);
-  border: 1px solid var(--borda);
+  font-weight: 600;
+  color: var(--laranja-claro);
+  border: 1px solid rgba(240, 112, 24, 0.6);
   border-radius: 999px;
 }
 
-/* ========== 9. CONTATO E FORMULÁRIO ========== */
-.email-linha {
+/* ========== 12. CERTIFICADOS ========== */
+.grade-certificados {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* linha laranja fina com brilho suave nos cards de destaque */
+.card-certificado {
+  overflow: hidden;
+  border-color: rgba(240, 112, 24, 0.5);
+  box-shadow: 0 0 28px rgba(240, 112, 24, 0.15);
+}
+
+.certificado-imagem {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  background: #0c0b09;
+  border-bottom: 1px solid var(--borda);
+}
+
+.certificado-corpo {
+  padding: 1.25rem;
+}
+
+.certificado-corpo p {
+  margin: 0 0 0.35rem;
+}
+
+.certificado-corpo a {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+/* ========== 13. CONTATO ========== */
+#contato {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.contato-texto .redes {
+  margin-top: 1.5rem;
+}
+
+.card-contato {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  background: rgba(24, 21, 15, 0.85);
+  border: 1px solid rgba(240, 112, 24, 0.5);
+  border-radius: 28px;
+  box-shadow: 0 0 40px rgba(240, 112, 24, 0.15);
+}
+
+.rotulo {
+  margin: 0 0 0.4rem;
+  padding: 0;
+  font-family: var(--fonte-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cinza);
+}
+
+.linha-campo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3.25rem;
+  padding: 0.5rem 0.75rem;
+  color: var(--texto);
+  text-decoration: none;
+  background: var(--bg);
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+}
+
+.linha-campo .icone {
+  color: #3b9cff;
+}
+
+a.linha-campo:hover {
+  border-color: rgba(240, 112, 24, 0.6);
+}
+
+.linha-campo .texto {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--texto);
+  text-decoration: none;
+}
+
+/* assunto: botões de escolha em formato de pílula */
+.assuntos {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.assuntos-opcoes {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem 1rem;
+  gap: 0.5rem;
 }
 
-.email-linha p {
+.assunto {
+  position: relative;
+}
+
+.assunto input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
   margin: 0;
+  padding: 0;
+  opacity: 0;
 }
 
+.assunto label {
+  display: inline-block;
+  padding: 0.45rem 1rem;
+  font-family: var(--fonte-texto);
+  font-size: 0.9rem;
+  color: var(--texto);
+  border: 1px solid var(--borda);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.assunto input:checked + label {
+  background: rgba(240, 112, 24, 0.25);
+  border-color: var(--laranja);
+}
+
+.assunto input:focus-visible + label {
+  outline: 2px solid var(--laranja);
+  outline-offset: 3px;
+}
+
+/* formulário */
 form {
   display: grid;
   gap: 1rem;
-  margin-top: 2rem;
-}
-
-/* itens de uma grade esticam por padrão; aqui o botão fica no tamanho do texto */
-form .botao {
-  justify-self: start;
-}
-
-label {
-  font-family: var(--fonte-mono);
-  font-size: 0.85rem;
-  color: var(--cinza);
 }
 
 input,
 select,
 textarea {
   width: 100%;
-  margin-top: 0.35rem;
   padding: 0.75rem;
   font: inherit;
   color: var(--texto);
@@ -388,33 +835,100 @@ footer {
   border-top: 1px solid var(--borda);
 }
 
-/* ========== 10. DESKTOP (a partir de 768px) ========== */
+/* ========== 14. TELAS MÉDIAS (a partir de 768px) ========== */
 @media (min-width: 48rem) {
-  /* cabeçalho em linha: logo à esquerda, menu à direita */
+  /* cabeçalho vira uma única pílula centralizada: logo + menu */
   header {
+    top: 0.75rem;
     flex-direction: row;
-    justify-content: space-between;
-    padding: 0.75rem 2rem;
+    gap: 1.5rem;
+    width: fit-content;
+    max-width: calc(100% - 2rem);
+    margin: 0.75rem auto 0;
+    padding: 0.3rem 0.5rem 0.3rem 1.5rem;
+    background: rgba(24, 21, 15, 0.8);
+    border: 1px solid var(--borda);
+    border-radius: 999px;
+    backdrop-filter: blur(10px);
+  }
+
+  /* o menu deixa de ter pílula própria: a pílula agora é o cabeçalho */
+  nav ul {
+    padding: 0;
+    background: transparent;
+    border: 0;
   }
 
   section {
     padding: 6rem 2rem;
   }
 
-  .grade-tech {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
   .grade-certificados {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  form {
-    max-width: 40rem;
+  .card-contato {
+    padding: 2rem;
   }
 }
 
-/* ========== 11. ACESSIBILIDADE: MENOS MOVIMENTO ========== */
+/* ========== 15. TELAS GRANDES (a partir de 1024px) ========== */
+@media (min-width: 64rem) {
+  #inicio {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .hero-arte {
+    max-width: none;
+  }
+
+  #sobre {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .tech-layout {
+    grid-template-columns: minmax(0, 2.7fr) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  /* cada card: título à esquerda, ícones à direita */
+  .card-tech {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .card-tech-info {
+    flex: 0 0 14rem;
+    padding-right: 1.5rem;
+    border-right: 1px solid var(--borda);
+  }
+
+  .tech-arte {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .grade-projetos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #contato {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    align-items: center;
+    gap: 4rem;
+  }
+}
+
+/* ========== 16. ACESSIBILIDADE: MENOS MOVIMENTO ========== */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -425,5 +939,10 @@ footer {
   *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
+  .etiqueta::before {
+    animation: none;
   }
 }
