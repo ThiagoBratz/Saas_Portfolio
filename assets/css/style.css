@@ -249,11 +249,20 @@ section p {
   gap: 2rem;
 }
 
-.hero-arte {
+/* caixa que agrupa notebook + anéis + ícones flutuantes */
+.hero-visual {
+  position: relative;
   width: 100%;
   max-width: 34rem;
-  height: auto;
   margin-inline: auto;
+}
+
+.hero-arte {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* etiqueta "Em constante evolução" */
@@ -575,9 +584,17 @@ section p {
   height: 2.5rem;
 }
 
-/* arte </>: só aparece em telas grandes */
-.tech-arte {
+/* arte </> + anéis + ícones: só aparece em telas grandes */
+.tech-visual {
   display: none;
+}
+
+.tech-arte {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* ========== 11. PROJETOS ========== */
@@ -865,7 +882,7 @@ header nav a.ativo {
   background: rgba(240, 112, 24, 0.15);
 }
 
-/* flutuação e anéis (ainda não há anéis no HTML) */
+/* flutuação e anéis */
 @keyframes flutuar {
   0%,
   100% {
@@ -887,9 +904,65 @@ header nav a.ativo {
   animation-delay: var(--atraso, 0s);
 }
 
+/* anéis laranja que giram devagar atrás da imagem.
+   "translate" (propriedade própria) centraliza sem brigar com o "transform" da animação */
 .anel {
-  animation: girar 40s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border: 2px solid rgba(240, 112, 24, 0.16);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: girar var(--giro, 40s) linear infinite;
 }
+
+.anel-1 {
+  width: 66%;
+  border-top-color: rgba(240, 112, 24, 0.8);
+  border-right-color: rgba(240, 112, 24, 0.4);
+}
+
+.anel-2 {
+  width: 82%;
+  --giro: 60s;
+  animation-direction: reverse;
+  border-bottom-color: rgba(240, 112, 24, 0.55);
+  border-left-color: rgba(240, 112, 24, 0.3);
+}
+
+/* ícones flutuantes: cartõezinhos escuros com o ícone real da tecnologia */
+.icone-flutuante {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: rgba(24, 21, 15, 0.92);
+  border: 1px solid rgba(240, 112, 24, 0.45);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 18px rgba(240, 112, 24, 0.18);
+}
+
+.icone-flutuante img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* posição de cada ícone no hero */
+.icone-python  { top: 6%;     left: 4%; }
+.icone-fastapi { top: 10%;    right: 2%; }
+.icone-html    { bottom: 24%; left: 0; }
+.icone-git     { bottom: 6%;  right: 10%; }
+.icone-vscode  { top: 46%;    right: 0; }
+
+/* posição de cada ícone na arte </> */
+.icone-javascript { top: 8%;    left: 4%; }
+.icone-postgresql { top: 14%;   right: 2%; }
+.icone-docker     { bottom: 8%; left: 18%; }
 
 /* entrada com fade ao rolar (só funciona se o JS estiver ativo) */
 .js .revelar {
@@ -959,6 +1032,17 @@ header nav a.ativo {
   .card-contato {
     padding: 2rem;
   }
+
+  .icone-flutuante {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 16px;
+  }
+
+  .icone-flutuante img {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 
 /* ========== 15. TELAS GRANDES (a partir de 1024px) ========== */
@@ -970,7 +1054,7 @@ header nav a.ativo {
     gap: 2rem;
   }
 
-  .hero-arte {
+  .hero-visual {
     max-width: none;
   }
 
@@ -999,10 +1083,9 @@ header nav a.ativo {
     border-right: 1px solid var(--borda);
   }
 
-  .tech-arte {
+  .tech-visual {
+    position: relative;
     display: block;
-    width: 100%;
-    height: auto;
   }
 
   .grade-projetos {
