@@ -169,9 +169,9 @@
       </div>
 
       <figure class="foto revelar">
-        <img src="assets/img/foto_thiago.jpg" alt="Foto de Thiago Bratz" width="800" height="1000" loading="lazy" decoding="async">
-        <span class="chip chip-terminal" aria-hidden="true">&gt;_</span>
-        <span class="chip chip-linux" aria-hidden="true">Linux</span>
+        <img class="flutuar" style="--duracao: 7s" src="assets/img/foto_thiago.jpg" alt="Foto de Thiago Bratz" width="800" height="1000" loading="lazy" decoding="async">
+        <span class="chip chip-terminal flutuar" style="--duracao: 5s; --atraso: -1s" aria-hidden="true">&gt;_</span>
+        <span class="chip chip-linux flutuar" style="--duracao: 6s; --atraso: -3s" aria-hidden="true">Linux</span>
       </figure>
     </section>
 
@@ -253,10 +253,10 @@
       <div class="secao-topo revelar">
         <p class="eyebrow">04. Projetos</p>
         <h2 id="titulo-projetos">O que venho construindo</h2>
-        <p class="resumo">3 projetos · 2 em desenvolvimento</p>
+        <p class="resumo" id="resumo-projetos">3 projetos · 2 em desenvolvimento</p>
       </div>
 
-      <div class="grade-projetos">
+      <div class="grade-projetos" id="lista-projetos">
 
         <article class="card-projeto revelar">
           <img class="projeto-imagem" src="assets/img/projetos/lotools.png" alt="Tela do sistema Lotools" width="1200" height="675" loading="lazy" decoding="async">
@@ -313,7 +313,7 @@
         <h2 id="titulo-certificados">Certificados que organizam cada etapa da minha evolução.</h2>
       </div>
 
-      <div class="grade-certificados">
+      <div class="grade-certificados" id="lista-certificados">
 
         <article class="card-certificado revelar">
           <img class="certificado-imagem" src="assets/img/certificados/python-primeira-aplicacao.png" alt="Certificado do curso Python: crie a sua primeira aplicação" width="1200" height="800" loading="lazy" decoding="async">
@@ -443,6 +443,12 @@
     </section>
 
   </main>
+
+  <!-- indicação da próxima seção (só aparece no modo tela cheia) -->
+  <button class="proxima" id="proxima" type="button">
+    <span id="proxima-texto">Sobre mim</span>
+    <span class="proxima-linha" aria-hidden="true"></span>
+  </button>
 
   <footer>
     <p>Thiago Bratz</p>

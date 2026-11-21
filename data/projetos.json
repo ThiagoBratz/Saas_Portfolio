@@ -1,0 +1,35 @@
+[
+  {
+    "nome": "Lotools",
+    "categoria": "Sistema web",
+    "status": "Concluído",
+    "descricao": "Sistema web em Python e FastAPI, usado por colegas na Lotus.",
+    "imagem": "assets/img/projetos/lotools.png",
+    "alt": "Tela do sistema Lotools",
+    "tecnologias": ["Python", "FastAPI", "JavaScript", "HTML", "CSS", "PostgreSQL"],
+    "privado": true,
+    "links": []
+  },
+  {
+    "nome": "Portfólio",
+    "categoria": "Projeto pessoal",
+    "status": "Em desenvolvimento",
+    "descricao": "Projeto pessoal, este site que você está vendo.",
+    "imagem": "assets/img/projetos/portfolio.png",
+    "alt": "Imagem do projeto Portfólio",
+    "tecnologias": ["HTML", "CSS", "JavaScript"],
+    "privado": false,
+    "links": []
+  },
+  {
+    "nome": "Dashboard de metas comerciais",
+    "categoria": "Dashboard Power BI",
+    "status": "Em desenvolvimento",
+    "descricao": "Dashboard em Power BI para acompanhar metas comerciais.",
+    "imagem": "assets/img/projetos/dashboard.png",
+    "alt": "Imagem do Dashboard de metas comerciais",
+    "tecnologias": ["Excel", "Power BI"],
+    "privado": false,
+    "links": []
+  }
+]
