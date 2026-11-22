@@ -6,7 +6,8 @@
     "data": "2026-09-20",
     "imagem": "assets/img/certificados/python-primeira-aplicacao.png",
     "alt": "Certificado do curso Python: crie a sua primeira aplicação",
-    "link": "https://cursos.alura.com.br/user/bratzthiagokaleu/course/python-crie-sua-primeira-aplicacao/certificate"
+    "link": "https://cursos.alura.com.br/user/bratzthiagokaleu/course/python-crie-sua-primeira-aplicacao/certificate",
+    "destaque": true
   },
   {
     "titulo": "Pensamento computacional: fundamentos da computação e lógica de programação",
@@ -15,6 +16,7 @@
     "data": "2026-09-26",
     "imagem": "assets/img/certificados/pensamento-computacional.png",
     "alt": "Certificado do curso Pensamento computacional: fundamentos da computação e lógica de programação",
-    "link": "https://cursos.alura.com.br/user/bratzthiagokaleu/course/computacao-fundamentos-computacao-pensamento-computacional/certificate"
+    "link": "https://cursos.alura.com.br/user/bratzthiagokaleu/course/computacao-fundamentos-computacao-pensamento-computacional/certificate",
+    "destaque": true
   }
 ]

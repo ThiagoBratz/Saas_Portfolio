@@ -587,6 +587,7 @@ section p {
 /* arte </> + anéis + ícones: só aparece em telas grandes */
 .tech-visual {
   display: none;
+   translate: clamp(1rem, 2.5vw, 3rem) 0;
 }
 
 .tech-arte {

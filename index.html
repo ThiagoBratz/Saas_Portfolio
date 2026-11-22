@@ -12,15 +12,16 @@
   <meta property="og:description" content="Portfólio de Thiago Bratz, desenvolvedor em formação com foco em Python e Backend.">
   <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/css/style.css">
-  <!-- marca que o JavaScript está ativo (o CSS do fade depende disso) -->
+  <link rel="stylesheet" href="assets/css/certificados.css">
   <script>document.documentElement.classList.add("js");</script>
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/certificados.js" defer></script>
 </head>
 <body>
   <a href="#conteudo">Pular para o conteúdo</a>
   <div class="progresso" id="progresso" aria-hidden="true"></div>
 
-  <!-- Biblioteca de ícones: definidos uma vez aqui e reutilizados com <use> -->
+  <!-- Biblioteca de ícones-->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="i-github" viewBox="0 0 16 16">
       <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
@@ -116,7 +117,6 @@
 
         <img class="hero-arte flutuar" src="assets/img/hero-notebook.webp" alt="" width="1200" height="831" decoding="async">
 
-        <!-- ícones flutuantes (decorativos), cada um com ritmo próprio -->
         <span class="icone-flutuante icone-python flutuar" style="--duracao: 5s; --atraso: -1s" aria-hidden="true">
           <img src="assets/icons/tech/python.svg" alt="" width="32" height="32">
         </span>
@@ -306,42 +306,38 @@
       </div>
     </section>
 
-    <!-- ========== CERTIFICADOS ========== -->
+        <!-- ========== CERTIFICADOS ========== -->
     <section id="certificados" aria-labelledby="titulo-certificados">
       <div class="secao-topo revelar">
         <p class="eyebrow">05. Certificados</p>
-        <h2 id="titulo-certificados">Certificados que organizam cada etapa da minha evolução.</h2>
+        <h2 id="titulo-certificados">Certificados</h2>
       </div>
 
-      <div class="grade-certificados" id="lista-certificados">
+      <div class="carrossel revelar" id="carrossel" role="region"
+           aria-roledescription="carrossel" aria-label="Certificados em destaque">
+        <div class="carrossel-palco" id="carrossel-palco">
+          <button type="button" class="carrossel-seta carrossel-seta--anterior"
+                  id="carrossel-anterior" aria-label="Certificado anterior">
+            <span aria-hidden="true">←</span>
+          </button>
+          <button type="button" class="carrossel-seta carrossel-seta--proximo"
+                  id="carrossel-proximo" aria-label="Próximo certificado">
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
 
-        <article class="card-certificado revelar">
-          <img class="certificado-imagem" src="assets/img/certificados/python-primeira-aplicacao.png" alt="Certificado do curso Python: crie a sua primeira aplicação" width="1200" height="800" loading="lazy" decoding="async">
-          <div class="certificado-corpo">
-            <h3>Python: crie a sua primeira aplicação</h3>
-            <p>Alura · 8 horas</p>
-            <p>Data do certificado: <time datetime="2026-09-20">20/09/2026</time></p>
-            <a href="https://cursos.alura.com.br/user/bratzthiagokaleu/course/python-crie-sua-primeira-aplicacao/certificate">Visualizar certificado</a>
-          </div>
-        </article>
-
-        <article class="card-certificado revelar">
-          <img class="certificado-imagem" src="assets/img/certificados/pensamento-computacional.png" alt="Certificado do curso Pensamento computacional: fundamentos da computação e lógica de programação" width="1200" height="800" loading="lazy" decoding="async">
-          <div class="certificado-corpo">
-            <h3>Pensamento computacional: fundamentos da computação e lógica de programação</h3>
-            <p>Alura · 8 horas</p>
-            <p>Data do certificado: <time datetime="2026-09-26">26/09/2026</time></p>
-            <a href="https://cursos.alura.com.br/user/bratzthiagokaleu/course/computacao-fundamentos-computacao-pensamento-computacional/certificate">Visualizar certificado</a>
-          </div>
-        </article>
-
+        <div class="carrossel-info" aria-live="polite" aria-atomic="true">
+          <h3 class="carrossel-titulo" id="carrossel-titulo">Carregando certificados…</h3>
+          <p class="carrossel-contador" id="carrossel-contador"></p>
+          <a class="carrossel-validar" id="carrossel-validar"
+             target="_blank" rel="noopener noreferrer" hidden>
+            Ver credencial<span class="sr-only"> (abre em nova aba)</span>
+          </a>
+        </div>
       </div>
 
-      <div class="acao-centro">
-        <button class="botao botao-secundario" type="button">
-          <svg class="icone-linha" aria-hidden="true"><use href="#i-externo"/></svg>
-          Ver todos os certificados
-        </button>
+      <div class="certificados-acoes">
+        <a class="botao" href="certificados.html">Ver todos os certificados</a>
       </div>
     </section>
 
@@ -444,7 +440,6 @@
 
   </main>
 
-  <!-- indicação da próxima seção (só aparece no modo tela cheia) -->
   <button class="proxima" id="proxima" type="button">
     <span id="proxima-texto">Sobre mim</span>
     <span class="proxima-linha" aria-hidden="true"></span>
