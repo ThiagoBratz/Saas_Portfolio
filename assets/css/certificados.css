@@ -1,34 +1,58 @@
+/* =========================================================
+   certificados.css
+   Carrossel (index.html), galeria (certificados.html) e botão
+   "Ver todos os projetos". Carregar DEPOIS do style.css.
+   Mobile-first: o estilo base é o do celular; telas maiores
+   ajustam dentro de @media (min-width: ...).
+   ========================================================= */
+
 :root {
   --cert-card: #18150f;
   --cert-laranja: #f07018;
   --cert-texto: #f4ece4;
   --cert-cinza: #a2a29c;
   --cert-fonte-mono: "JetBrains Mono", ui-monospace, monospace;
-    --icone-externo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 3h6v6'/%3E%3Cpath d='M10 14 21 3'/%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3C/svg%3E");
+
+  /* desenho do ícone "abrir em nova aba", usado como máscara */
+  --icone-externo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 3h6v6'/%3E%3Cpath d='M10 14 21 3'/%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6'/%3E%3C/svg%3E");
 }
 
 /* ================= 1. CARROSSEL ================= */
 
-.carrossel {
-  --largura-slide: min(34rem, 72vw, 50vh);
-  --altura-slide: calc(var(--largura-slide) / 1.4);
-  --afastamento: 68%; 
-
-  width: 100%;
-  max-width: 72rem;
-  margin-inline: auto;
+/* O style.css limita toda <section> a 78rem e corta o que passa (overflow-x: clip).
+   Aqui a seção deixa o carrossel passar: ele ocupa a largura inteira da tela. */
+#certificados {
+  overflow: visible;
 }
 
+.carrossel {
+  --proporcao: 1.48; /* largura / altura dos seus certificados (893 x 603) */
+  --largura-slide: min(34rem, 72vw, 50vh);
+  --altura-slide: calc(var(--largura-slide) / var(--proporcao));
+  --afastamento: 68%; /* quanto cada vizinho se afasta do centro (% da largura do slide) */
 
+  /* largura da tela inteira, "estourando" a caixa da seção */
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+
+  /* O único corte que sobra é na borda da tela (no celular, os vizinhos "espiam" pela lateral).
+     Como a caixa tem a largura da tela, o corte nunca acontece no meio da página. */
+  overflow-x: clip;
+}
+
+/* O palco é a "janela" do carrossel. Ele mesmo não corta nada. */
 .carrossel-palco {
   position: relative;
   height: calc(var(--altura-slide) + 3rem);
-  perspective: 75rem; 
-  overflow-x: clip; 
-  touch-action: pan-y; 
+  perspective: 75rem; /* dá a profundidade 3D ao rotateY dos vizinhos */
+  touch-action: pan-y; /* a rolagem vertical é do navegador; a horizontal é nossa */
   user-select: none;
 }
 
+/* Todos os slides ficam empilhados no centro do palco.
+   - translate (propriedade própria) só centraliza;
+   - transform só faz a posição (atual / anterior / próximo).
+   Como são propriedades diferentes, uma não apaga a outra. */
 .slide {
   position: absolute;
   top: 50%;
@@ -47,7 +71,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: contain; /* mostra o certificado inteiro: nunca corta, mesmo com outra proporção */
   background: var(--cert-card);
   border: 1px solid rgba(240, 112, 24, 0.25);
   border-radius: 1rem;
@@ -68,14 +92,14 @@
 
 .slide[data-posicao="anterior"] {
   z-index: 2;
-  opacity: 0.6;
+  opacity: 0.7;
   cursor: pointer;
   transform: translateX(calc(var(--afastamento) * -1)) scale(0.8) rotateY(24deg);
 }
 
 .slide[data-posicao="proximo"] {
   z-index: 2;
-  opacity: 0.6;
+  opacity: 0.7;
   cursor: pointer;
   transform: translateX(var(--afastamento)) scale(0.8) rotateY(-24deg);
 }
@@ -87,7 +111,8 @@
   transform: translateX(0) scale(0.7);
 }
 
-/* Setas */
+/* Setas: ficam sobre os vizinhos (a 1,25 largura de slide do centro) e,
+   se não couber na tela, encostam na borda com 0,5rem de folga */
 .carrossel-seta {
   position: absolute;
   top: 50%;
@@ -111,11 +136,11 @@
 }
 
 .carrossel-seta--anterior {
-  left: 0.5rem;
+  left: max(0.5rem, calc(50% - var(--largura-slide) * 1.25));
 }
 
 .carrossel-seta--proximo {
-  right: 0.5rem;
+  right: max(0.5rem, calc(50% - var(--largura-slide) * 1.25));
 }
 
 .carrossel-seta:hover {
@@ -124,12 +149,18 @@
 }
 
 .carrossel-seta:focus-visible,
+.carrossel-validar:focus-visible {
+  outline: 2px solid var(--cert-laranja);
+  outline-offset: 3px;
+}
 
+/* Informações embaixo do carrossel */
 .carrossel-info {
   display: grid;
   justify-items: center;
   gap: 0.5rem;
   margin-top: 1.5rem;
+  padding-inline: 1.25rem; /* o carrossel é largura total; o texto continua com margem */
   text-align: center;
 }
 
@@ -148,36 +179,19 @@
   letter-spacing: 0.04em;
 }
 
-.carrossel-validar {
-  color: var(--cert-laranja);
-  font-size: 0.9rem;
-  text-underline-offset: 0.25em;
-}
-
-
+/* Sem isso, o "display" de uma classe poderia vencer o atributo hidden */
 .carrossel [hidden] {
   display: none !important;
 }
 
 .certificados-acoes {
-  width: 100%;      
-  max-width: none;  
+  width: 100%;
+  max-width: none;
   margin: 1.5rem 0 0;
-  text-align: center; 
+  text-align: center;
 }
 
-@media (min-width: 40rem) {
-  .carrossel {
-    --largura-slide: min(34rem, 60vw, 50vh);
-    --afastamento: 64%;
-  }
-
-  .carrossel-seta {
-    width: 2.75rem;
-    height: 2.75rem;
-  }
-}
-
+/* Botão "Ver credencial" (carrossel e galeria) */
 .carrossel-validar,
 .galeria-link {
   display: inline-flex;
@@ -197,6 +211,7 @@
     color 0.2s ease;
 }
 
+/* O ícone: um quadradinho pintado com a cor do texto, recortado no formato do desenho */
 .carrossel-validar::after,
 .galeria-link::after {
   content: "";
@@ -207,12 +222,34 @@
   mask: var(--icone-externo) center / contain no-repeat;
 }
 
+/* Hover só onde existe hover de verdade (não no celular) */
 @media (hover: hover) {
   .carrossel-validar:hover,
   .galeria-link:hover {
     border-color: var(--cert-laranja);
     background: var(--cert-laranja);
     color: #12100e;
+  }
+}
+
+/* Telas médias: o central diminui um pouco e os vizinhos se afastam sem cobrir o centro */
+@media (min-width: 40rem) {
+  .carrossel {
+    --largura-slide: min(34rem, 56vw, 50vh);
+    --afastamento: 96%;
+  }
+
+  .carrossel-seta {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
+/* Telas grandes: os dois vizinhos aparecem inteiros, sem corte e sem passar da tela.
+   34vw garante que o conjunto (central + vizinhos) cabe na largura da janela. */
+@media (min-width: 64rem) {
+  .carrossel {
+    --largura-slide: min(34rem, 34vw, 50vh);
   }
 }
 
@@ -330,14 +367,16 @@
   margin-top: auto;      
 }
 
-/* ================= 3. MOVIMENTO REDUZIDO (sempre por último) ================= */
+/* ================= 3. Linha do resumo + botão (seção Projetos) ================= */
 
 .resumo-linha {
   display: flex;
-  flex-wrap: wrap;          
-  align-items: baseline;     
-  gap: 0.75rem 1.25rem;      
+  flex-wrap: wrap; /* no celular, o botão desce para a linha de baixo */
+  align-items: baseline; /* alinha o botão pela linha do texto */
+  gap: 0.75rem 1.25rem;
 }
+
+/* ================= 4. MOVIMENTO REDUZIDO (sempre por último) ================= */
 
 @media (prefers-reduced-motion: reduce) {
   .slide,
