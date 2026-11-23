@@ -1275,8 +1275,8 @@ header nav a.ativo {
 /* ========== 15B. TELAS MUITO GRANDES (a partir de 1280px) ========== */
 @media (min-width: 80rem) {
   /* mais espaço para a arte </>, mantendo os cards confortáveis */
-  .tech-layout {
-    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+   .tech-visual {
+    translate: 1.5rem 0; /* 24px: cabe nos ~30px de folga, sem ser cortado */
   }
 }
 

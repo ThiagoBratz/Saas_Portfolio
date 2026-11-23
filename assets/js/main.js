@@ -102,70 +102,12 @@ function observarRevelar(raiz = document) {
 observarRevelar();
 
 // ===== 4. Cards de projetos a partir de data/projetos.json =====
+// As funções que desenham o card (criarCardProjeto, textoResumoProjetos...)
+// ficam no projetos.js, compartilhado com a página projetos.html.
 
-
-function linkSeguro(url) {
-  return typeof url === "string" && /^https?:\/\//.test(url);
-}
-
-function criarElemento(tag, classe, texto) {
-  const elemento = document.createElement(tag);
-  if (classe) elemento.className = classe;
-  if (texto) elemento.textContent = texto;
-  return elemento;
-}
-
-function criarCardProjeto(p) {
-  const card = criarElemento("article", "card-projeto revelar");
-
-  const imagem = criarElemento("img", "projeto-imagem");
-  imagem.src = p.imagem;
-  imagem.alt = p.alt;
-  imagem.width = 1200;
-  imagem.height = 675;
-  imagem.loading = "lazy";
-  imagem.decoding = "async";
-
-  const corpo = criarElemento("div", "projeto-corpo");
-  corpo.append(criarElemento("h3", "", p.nome));
-  corpo.append(criarElemento("p", "meta", `${p.categoria} · ${p.status}`));
-  if (p.privado) corpo.append(criarElemento("p", "selo", "Repositório privado"));
-  corpo.append(criarElemento("p", "", p.descricao));
-
-  const etiquetas = criarElemento("ul", "etiquetas");
-  etiquetas.setAttribute("aria-label", `Tecnologias do ${p.nome}`);
-  (p.tecnologias || []).forEach((t) => etiquetas.append(criarElemento("li", "", t)));
-  corpo.append(etiquetas);
-
- 
-  const links = (p.links || []).filter((l) => linkSeguro(l.url));
-  if (links.length > 0) {
-    const lista = criarElemento("ul", "projeto-links");
-    links.forEach((l) => {
-      const item = criarElemento("li");
-      const a = criarElemento("a", "", l.rotulo);
-      a.href = l.url;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      a.setAttribute("aria-label", `${l.rotulo} (abre em nova aba)`);
-      item.append(a);
-      lista.append(item);
-    });
-    corpo.append(lista);
-  }
-
-  card.append(imagem, corpo);
-  return card;
-}
-
-function textoResumoProjetos(projetos) {
-  const total = projetos.length;
-  const emDesenvolvimento = projetos.filter((p) => p.status.toLowerCase().includes("desenvolvimento")).length;
-  const palavra = total === 1 ? "projeto" : "projetos";
-  return `${total} ${palavra} · ${emDesenvolvimento} em desenvolvimento`;
-}
-
-async function montarCards(seletor, caminho, criarCard, aoTerminar) {
+// filtrar: decide quais itens aparecem (ex.: só os destaques)
+// aoTerminar: roda no fim e recebe TODOS os itens do JSON
+async function montarCards(seletor, caminho, criarCard, { filtrar, aoTerminar } = {}) {
   const lista = document.querySelector(seletor);
   if (!lista) return;
 
@@ -174,10 +116,13 @@ async function montarCards(seletor, caminho, criarCard, aoTerminar) {
     if (!resposta.ok) throw new Error(`HTTP ${resposta.status}`);
 
     const dados = await resposta.json();
-    if (!Array.isArray(dados) || dados.length === 0) throw new Error("lista vazia");
+    if (!Array.isArray(dados)) throw new Error("o JSON não é uma lista");
 
-    lista.replaceChildren(...dados.map(criarCard));
-    observarRevelar(lista); 
+    const exibidos = filtrar ? dados.filter(filtrar) : dados;
+    if (exibidos.length === 0) throw new Error("nenhum item para exibir");
+
+    lista.replaceChildren(...exibidos.map((item) => criarCard(item)));
+    observarRevelar(lista); // os cards novos também precisam do fade
     if (aoTerminar) aoTerminar(dados);
   } catch (erro) {
     console.warn(`[portfólio] Não consegui ler ${caminho}; mantendo os cards do HTML.`, erro);
@@ -439,8 +384,12 @@ window.addEventListener("load", () => avaliarModo());
 // ===== Início =====
 avaliarModo(true);
 
-montarCards("#lista-projetos", "data/projetos.json", criarCardProjeto, (dados) => {
-  const resumo = document.querySelector("#resumo-projetos");
-  if (resumo) resumo.textContent = textoResumoProjetos(dados);
+montarCards("#lista-projetos", "data/projetos.json", criarCardProjeto, {
+  filtrar: (p) => p.destaque === true, // só os 3 em destaque
+  aoTerminar: (dados) => {
+    const resumo = document.querySelector("#resumo-projetos");
+    // o resumo conta TODOS os projetos, não só os exibidos
+    if (resumo) resumo.textContent = textoResumoProjetos(dados);
+  },
 });
 

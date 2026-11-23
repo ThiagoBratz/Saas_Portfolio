@@ -8,7 +8,8 @@
     "alt": "Tela do sistema Lotools",
     "tecnologias": ["Python", "FastAPI", "JavaScript", "HTML", "CSS", "PostgreSQL"],
     "privado": true,
-    "links": []
+    "links": [],
+    "destaque": true
   },
   {
     "nome": "Portfólio",
@@ -19,7 +20,8 @@
     "alt": "Imagem do projeto Portfólio",
     "tecnologias": ["HTML", "CSS", "JavaScript"],
     "privado": false,
-    "links": []
+    "links": [],
+    "destaque": true
   },
   {
     "nome": "Dashboard de metas comerciais",
@@ -30,6 +32,7 @@
     "alt": "Imagem do Dashboard de metas comerciais",
     "tecnologias": ["Excel", "Power BI"],
     "privado": false,
-    "links": []
+    "links": [],
+    "destaque": true
   }
 ]
