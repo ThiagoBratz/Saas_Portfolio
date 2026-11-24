@@ -586,7 +586,6 @@ section p {
 /* arte </> + anéis + ícones: só aparece em telas grandes */
 .tech-visual {
   display: none;
-   translate: clamp(1rem, 2.5vw, 3rem) 0;
 }
 
 .tech-arte {
@@ -1254,9 +1253,10 @@ header nav a.ativo {
   }
 
   .tech-visual {
-  position: relative;
-  display: block;
-  scale: 1.05;
+    position: relative;
+    display: block;
+    scale: 1.05;          /* tamanho */
+    translate: 1.5rem 0;  /* deslocamento para a direita */
   }
 
   .grade-projetos {
@@ -1280,29 +1280,20 @@ header nav a.ativo {
 }
 
 /* ========== 16. ACESSIBILIDADE: MENOS MOVIMENTO (sempre por último) ========== */
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+/* Telas grandes: quanto mais largura, mais o símbolo cresce e se afasta dos cards */
+@media (min-width: 90rem) {            /* 1440px */
+  #tecnologias { overflow: visible; }  /* deixa a arte passar da caixa da seção */
+  .tech-visual { scale: 1.15; translate: 4rem 0; }
+}
 
-  *,
-  *::before,
-  *::after {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-  }
+@media (min-width: 96rem) {            /* 1536px */
+  .tech-visual { scale: 1.2; translate: 6rem 0; }
+}
 
-  .etiqueta::before,
-  .flutuar,
-  .anel,
-  .proxima-linha {
-    animation: none;
-  }
+@media (min-width: 120rem) {           /* 1920px */
+  .tech-visual { scale: 1.3; translate: 8rem 0; }
+}
 
-  .js .revelar {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+@media (min-width: 160rem) {           /* 2560px */
+  .tech-visual { scale: 1.4; translate: 12rem 0; }
 }
