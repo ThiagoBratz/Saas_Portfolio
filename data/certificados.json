@@ -18,5 +18,25 @@
     "alt": "Certificado do curso Pensamento computacional: fundamentos da computação e lógica de programação",
     "link": "https://cursos.alura.com.br/user/bratzthiagokaleu/course/computacao-fundamentos-computacao-pensamento-computacional/certificate",
     "destaque": true
+  },
+  {
+    "titulo": "Git e GitHub: compartilhando e colaborando em projetos",
+    "instituicao": "Alura",
+    "horas": 8,
+    "data": "2026-09-26",
+    "imagem": "assets/img/certificados/git_e_github.png",
+    "alt": "Certificado do curso Git e GitHub: compartilhando e colaborando em projetos",
+    "link": "https://cursos.alura.com.br/user/bratzthiagokaleu/course/git-github-compartilhando-colaborando-projetos/certificate",
+    "destaque": true
+  },
+  {
+    "titulo": "Python: aplicando a Orientação a Objetos",
+    "instituicao": "Alura",
+    "horas": 8,
+    "data": "2026-09-26",
+    "imagem": "assets/img/certificados/python_poo.png",
+    "alt": "Certificado do curso Python: aplicando a Orientação a Objetos",
+    "link": "https://cursos.alura.com.br/user/bratzthiagokaleu/course/python-aplicando-orientacao-objetos/certificate",
+    "destaque": true
   }
 ]
