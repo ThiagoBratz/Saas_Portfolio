@@ -1297,3 +1297,175 @@ header nav a.ativo {
 @media (min-width: 160rem) {           /* 2560px */
   .tech-visual { scale: 1.4; translate: 12rem 0; }
 }
+
+/* ========== 17. CARD DE PROJETO: BOTÃO DE DETALHES ========== */
+.projeto-midia {
+  position: relative;
+  overflow: hidden;
+}
+
+/* escurece a imagem no hover */
+.projeto-midia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(18 16 14 / 0.6);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.projeto-detalhes {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--bg-2);
+  color: var(--texto);
+  border: 1px solid rgb(240 112 24 / 0.5);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.projeto-detalhes .icone-linha {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.projeto-midia:hover::after,
+.projeto-midia:focus-within::after {
+  opacity: 1;
+}
+
+.projeto-midia:hover .projeto-detalhes,
+.projeto-midia:focus-within .projeto-detalhes {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.projeto-detalhes:hover {
+  background: var(--laranja);
+  color: var(--bg);
+}
+
+/* Celular/tablet não têm "mouse em cima": deixa o botão sempre visível */
+@media (hover: none) {
+  .projeto-detalhes {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* ========== 18. PÁGINA DE DETALHES (projeto.html) ========== */
+.projeto-pagina {
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+.projeto-topo h1 {
+  margin: 0.25rem 0;
+}
+
+.projeto-meta {
+  font-family: var(--fonte-mono);
+  font-size: 0.9rem;
+  color: var(--cinza);
+}
+
+.projeto-resumo {
+  margin: 0.75rem 0 1rem;
+  font-size: 1.1rem;
+}
+
+.projeto-chips,
+.projeto-tecs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.projeto-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.projeto-chips li {
+  padding: 0.25rem 0.8rem;
+  font-family: var(--fonte-mono);
+  font-size: 0.8rem;
+  color: var(--laranja-claro);
+  border: 1px solid rgb(240 112 24 / 0.6);
+  border-radius: 999px;
+}
+
+.projeto-link {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: var(--laranja);
+  text-decoration: none;
+  border: 1px solid rgb(240 112 24 / 0.6);
+  border-radius: 999px;
+}
+
+.projeto-link:hover {
+  background: var(--laranja);
+  color: var(--bg);
+}
+
+.projeto-aviso {
+  color: var(--cinza);
+}
+
+.projeto-capa,
+.projeto-figura img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+}
+
+.projeto-capa {
+  margin: 1.5rem 0;
+}
+
+/* as seções daqui NÃO podem ter a altura de tela cheia da regra global "section" */
+.projeto-secao {
+  min-height: 0;
+  max-width: none;
+  margin: 2.5rem 0 0;
+  padding: 0;
+}
+
+.projeto-secao h2 {
+  margin-bottom: 0.75rem;
+}
+
+.projeto-secao p {
+  line-height: 1.7;
+  color: #d8cfc6;
+}
+
+.projeto-tecs li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.projeto-figura {
+  margin: 0 0 1.5rem;
+}
+
+.projeto-figura figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--cinza);
+}

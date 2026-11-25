@@ -11,6 +11,27 @@ function criarElemento(tag, classe, texto) {
   return elemento;
 }
 
+// Ícone de documento (SVG criado por código, sem innerHTML)
+function criarIconeDocumento() {
+  const NS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", "0 0 24 24");
+  svg.setAttribute("class", "icone-linha");
+  svg.setAttribute("aria-hidden", "true");
+
+  [
+    "M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z",
+    "M14 3v5h5",
+    "M9 13h6M9 17h6",
+  ].forEach((d) => {
+    const caminho = document.createElementNS(NS, "path");
+    caminho.setAttribute("d", d);
+    svg.append(caminho);
+  });
+
+  return svg;
+}
+
 // comFade = true na index.html (o card aparece com fade ao rolar);
 // em projetos.html não existe esse efeito, então passamos false.
 function criarCardProjeto(p, comFade = true) {
@@ -24,6 +45,19 @@ function criarCardProjeto(p, comFade = true) {
   imagem.loading = "lazy";
   imagem.decoding = "async";
 
+  // wrapper da imagem: é nele que o hover acontece
+  const midia = criarElemento("div", "projeto-midia");
+  midia.append(imagem);
+
+  // botão de documento: só existe se o projeto tiver "slug" no JSON
+  if (p.slug) {
+    const detalhes = criarElemento("a", "projeto-detalhes");
+    detalhes.href = `projeto.html?id=${encodeURIComponent(p.slug)}`;
+    detalhes.setAttribute("aria-label", `Ver detalhes do projeto ${p.nome}`);
+    detalhes.append(criarIconeDocumento());
+    midia.append(detalhes);
+  }
+
   const corpo = criarElemento("div", "projeto-corpo");
   corpo.append(criarElemento("h3", "", p.nome));
   corpo.append(criarElemento("p", "meta", `${p.categoria} · ${p.status}`));
@@ -35,7 +69,7 @@ function criarCardProjeto(p, comFade = true) {
   (p.tecnologias || []).forEach((t) => etiquetas.append(criarElemento("li", "", t)));
   corpo.append(etiquetas);
 
-  // links (só http/https). A classe "projeto-links" pode não existir no seu CSS: ajuste ao nome que você usa
+  // links (só http/https)
   const links = (p.links || []).filter((l) => linkSeguro(l.url));
   if (links.length > 0) {
     const lista = criarElemento("ul", "projeto-links");
@@ -52,7 +86,7 @@ function criarCardProjeto(p, comFade = true) {
     corpo.append(lista);
   }
 
-  card.append(imagem, corpo);
+  card.append(midia, corpo);
   return card;
 }
 

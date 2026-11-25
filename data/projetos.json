@@ -1,5 +1,6 @@
 [
   {
+    "slug": "lotools",
     "nome": "Lotools",
     "categoria": "Sistema web",
     "status": "Concluído",
@@ -9,9 +10,17 @@
     "tecnologias": ["Python", "FastAPI", "JavaScript", "HTML", "CSS", "PostgreSQL"],
     "privado": true,
     "links": [],
-    "destaque": true
+    "destaque": true,
+    "detalhes": {
+      "contexto": "",
+      "desafio": "",
+      "solucao": "",
+      "tecnologias": [],
+      "imagens": []
+    }
   },
   {
+    "slug": "portfolio",
     "nome": "Portfólio",
     "categoria": "Projeto pessoal",
     "status": "Em desenvolvimento",
@@ -21,9 +30,17 @@
     "tecnologias": ["HTML", "CSS", "JavaScript"],
     "privado": false,
     "links": [],
-    "destaque": true
+    "destaque": true,
+    "detalhes": {
+      "contexto": "",
+      "desafio": "",
+      "solucao": "",
+      "tecnologias": [],
+      "imagens": []
+    }
   },
   {
+    "slug": "dashboard-metas-comerciais",
     "nome": "Dashboard de metas comerciais",
     "categoria": "Dashboard Power BI",
     "status": "Em desenvolvimento",
@@ -33,6 +50,13 @@
     "tecnologias": ["Excel", "Power BI"],
     "privado": false,
     "links": [],
-    "destaque": true
+    "destaque": true,
+    "detalhes": {
+      "contexto": "",
+      "desafio": "",
+      "solucao": "",
+      "tecnologias": [],
+      "imagens": []
+    }
   }
 ]

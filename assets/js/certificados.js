@@ -6,8 +6,6 @@
 
   /* ---------- 1. Funções de apoio ---------- */
 
-  // "2026-09-20" -> "20/09/2026". Separamos o texto em vez de usar new Date()
-  // para evitar o erro de fuso horário (o dia poderia aparecer como 19).
   function formatarData(iso) {
     const [ano, mes, dia] = iso.split("-");
     return `${dia}/${mes}/${ano}`;
@@ -92,8 +90,6 @@
     // 2.3 Estado: um único número, o índice do slide atual
     let indiceAtual = 0;
 
-    // Dado o índice de um slide, diz onde ele está em relação ao atual.
-    // O resto da divisão (%) faz a lista "dar a volta" (circular).
     function posicaoDoSlide(i) {
       const distancia = (i - indiceAtual + total) % total;
       if (distancia === 0) return "atual";
@@ -106,7 +102,7 @@
     function atualizar() {
       slides.forEach((slide, i) => {
         const posicao = posicaoDoSlide(i);
-        slide.dataset.posicao = posicao; // o CSS reage a [data-posicao="..."]
+        slide.dataset.posicao = posicao; 
         slide.setAttribute("aria-hidden", posicao === "atual" ? "false" : "true");
       });
 
@@ -169,7 +165,7 @@
 
       if (Math.abs(deslocamento) > LIMITE_ARRASTE) {
         arrastou = true;
-        // arrastou para a esquerda (negativo) -> próximo slide
+        
         irPara(indiceAtual + (deslocamento < 0 ? 1 : -1));
       }
     });
@@ -180,7 +176,7 @@
 
     palco.addEventListener("click", (evento) => {
       if (arrastou) {
-        arrastou = false; 
+        arrastou = false;
         return;
       }
       const slide = evento.target.closest(".slide");
@@ -189,7 +185,7 @@
       if (slide.dataset.posicao === "proximo") irPara(indiceAtual + 1);
     });
 
-    atualizar(); 
+    atualizar();
   }
 
   /* ---------- 3. Galeria (certificados.html) ---------- */
@@ -203,8 +199,8 @@
     let certificados;
     try {
       const todos = await carregarCertificados();
-      // Datas ISO ("2026-09-20") ordenam corretamente como texto: mais recente primeiro
-      certificados = [...todos].sort((a, b) => b.data.localeCompare(a.data));
+      // Ordem cronológica: do mais antigo para o mais novo.
+      certificados = [...todos].sort((a, b) => a.data.localeCompare(b.data));
     } catch (erro) {
       console.error("[certificados] Falha ao carregar o JSON:", erro);
       resumo.textContent = "Não foi possível carregar os certificados agora.";
@@ -222,7 +218,7 @@
       const imagem = criar("img", "galeria-imagem");
       imagem.src = c.imagem;
       imagem.alt = c.alt;
-      imagem.loading = "lazy"; 
+      imagem.loading = "lazy";
       imagem.decoding = "async";
 
       const corpo = criar("div", "galeria-corpo");
