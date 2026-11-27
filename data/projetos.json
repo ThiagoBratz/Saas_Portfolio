@@ -1,23 +1,33 @@
 [
-  {
-    "slug": "lotools",
-    "nome": "Lotools",
-    "categoria": "Sistema web",
-    "status": "Concluído",
-    "descricao": "Sistema web em Python e FastAPI, usado por colegas na Lotus.",
-    "imagem": "assets/img/projetos/lotools.png",
-    "alt": "Tela do sistema Lotools",
-    "tecnologias": ["Python", "FastAPI", "JavaScript", "HTML", "CSS", "PostgreSQL"],
-    "privado": true,
-    "links": [],
-    "destaque": true,
-    "detalhes": {
-      "contexto": "a",
-      "desafio": "a",
-      "solucao": "a",
-      "tecnologias": [""],
-      "imagens": [""]
-    }
+ 
+{
+  "slug": "lotools",
+  "nome": "Lotools",
+  "categoria": "Sistema web",
+  "status": "Concluído",
+  "descricao": "Sistema web em Python e FastAPI, usado por colegas na Lotus.",
+  "imagem": "assets/img/projetos/lotools.png",
+  "alt": "Tela do sistema Lotools",
+  "tecnologias": ["Python", "FastAPI", "JavaScript", "HTML", "CSS", "PostgreSQL"],
+  "privado": true,
+  "links": [],
+  "destaque": true,
+  "detalhes": {
+    "contexto": "Sou estagiário de CCA na Lotus Incorporadora e trabalho com repasse e financiamento imobiliário. Boa parte da rotina do setor dependia de planilhas e contas manuais: recalcular aditivos de contrato, estimar as despesas de cartório do cliente (ITBI e registro de imóveis) e simular financiamentos com a construtora. Cada tarefa ficava num arquivo diferente, com fórmulas que poucas pessoas entendiam. Comecei o Lotools para juntar essas ferramentas num único sistema, com login e a identidade visual da empresa. Hoje ele é usado pelos colegas dos times de repasse e vendas.",
+    "desafio": "As regras de negócio estavam espalhadas pelas planilhas e cheias de exceções. Cada empreendimento tem alíquotas e tabelas de preço próprias, que mudam todo mês. Alguns ficam isentos de ITBI conforme o valor de compra e venda, e o registro cai pela metade no primeiro imóvel. Para o aditivo, os dados do cliente estavam presos num extrato em PDF, às vezes com intermediárias ou mais de um comprador. Por ser uma ferramenta com dados de clientes, ela também precisava de login seguro e de acessos diferentes por setor. E tudo isso eu aprendi a fazer no caminho: comecei sem experiência com APIs, banco de dados ou deploy.",
+    "solucao": "O Lotools reúne três ferramentas com o mesmo layout e a mesma navegação. O Calcular Aditivo lê o extrato em PDF, recalcula o fluxo e mostra o ANTES × AGORA, já com a mensagem pronta para enviar no Teams. A Calculadora DC calcula ITBI e registro com as regras de cada empreendimento. O Simular Financiamento valida a proposta pelas regras da empresa, sugere ajustes quando ela não fecha e exporta a proposta em PDF no modelo do marketing. Os perfis repasse, vendas e administrador veem ferramentas diferentes, e cada ferramenta tem um tutorial com imagens. Os cálculos ficam separados das telas e têm testes automatizados comparados com as planilhas originais.",
+    "tecnologias": [
+  { "nome": "Python", "uso": "motores de cálculo do aditivo, das despesas cartorárias e do financiamento." },
+  { "nome": "FastAPI", "uso": "rotas do sistema, que validam os formulários e chamam os cálculos." },
+  { "nome": "HTML, CSS e Jinja2", "uso": "telas e cards de resultado, com as cores da Lotus." },
+  { "nome": "JavaScript", "uso": "botão de copiar a mensagem do Teams e área de anexar o PDF." },
+  { "nome": "PostgreSQL", "uso": "usuários, perfis, tabelas dos empreendimentos e registro das propostas." },
+  { "nome": "pypdf", "uso": "leitura do extrato do cliente em PDF." },
+  { "nome": "Argon2", "uso": "hash das senhas no login." },
+  { "nome": "pytest", "uso": "testes automatizados dos cálculos e do PDF da proposta." }
+],
+    "imagens": []
+  }
   },
   {
     "slug": "portfolio",
