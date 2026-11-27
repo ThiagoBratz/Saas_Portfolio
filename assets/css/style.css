@@ -844,6 +844,15 @@ textarea {
   resize: vertical;
 }
 
+/* campo-armadilha contra robôs: fora da tela, invisível e fora do Tab */
+.campo-armadilha {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 footer {
   padding: 2rem 1.25rem;
   text-align: center;

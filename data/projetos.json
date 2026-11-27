@@ -12,11 +12,11 @@
     "links": [],
     "destaque": true,
     "detalhes": {
-      "contexto": "",
-      "desafio": "",
-      "solucao": "",
-      "tecnologias": [],
-      "imagens": []
+      "contexto": "a",
+      "desafio": "a",
+      "solucao": "a",
+      "tecnologias": [""],
+      "imagens": [""]
     }
   },
   {
